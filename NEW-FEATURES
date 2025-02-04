@@ -1,0 +1,26 @@
+##########################################################################
+######################## NEW FEATURES FOR TiK 0.90 #######################
+##########################################################################
+
+The preferences system no longer overwrites users' rc files, but instead
+uses their own "auto" rc files.  It does this by appending the necessary
+code to source the "auto" files at the end of the users' rc files.  If 
+you don't want the preferences system writing to your files AT ALL, then
+you need to place the following quoted text on it's own line (without any 
+modification and without the "") into each of your rc files: 
+             "# <!! PREFS don't touch this line !!>"
+There should be no whitespace before the # and nothing trailing the >.
+
+You can selectively refuse to load packages without removing them from
+the packages directory using the pkgrc file.  See example.pkgrc for 
+details. As a result, options unrelated to package loading should now go in tikrc.
+
+Initial IMs can now have their own custom sounds.  You use the variable
+::TIK(SOUND,Initial) just as you would any of the other sound variables.
+
+Google and GoogleLinux are new options available for the search area. 
+
+TiK automatically checks for a new version and notifies you of one's presence with an icon on the buddy list (can be disabled).
+
+TiK can also update your info at a certain interval (if you have fcommand in it and would like it to change every so often). This is somewhat kludgy and experimental, but it should work. It's off by default.
+

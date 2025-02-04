@@ -1,0 +1,29 @@
+###########
+# Away Messages
+#
+# Away messages to show up in the menu.  You can use the following codes
+# in your messages to change them dynamically.
+#
+# %n - Who sent the IM
+# %N - Your screen name
+# %i - Idle time in seconds
+# %I - Idle time in minutes
+# %e - Your current evil level 
+# %j - Last TiK Event (Local Time)
+# %J - Last TiK Event (UTC/GMT)
+# %t - Current Time (Local)
+# %T - Current Time (UTC/GMT)
+# %F - Execute Command and Return Output (see Fcommand option above)
+# %% - A percent sign
+###########
+
+if {![info exists [file join $::TIK(configDir) autoaway]]} {
+    away::register "Gone to lunch.  I'll be back in an hour." "Lunch"
+    away::register "In a meeting.  I'll be back soon." "Meeting"
+    away::register "I'm adding more features to Tik.  Be back soon." "TiK"
+}
+
+# <!! PREFS don't touch this line !!>
+# This line allows the preferences system to work.
+catch {source [file join $::TIK(configDir) autoaway]}
+

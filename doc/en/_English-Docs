@@ -1,0 +1,13 @@
+This directory houses the English-Language Documentation
+
+Written in the United States (originally), all documentation was created
+first in English.  With the expansion of AOL's Instant Messenger service
+to multiple server sites world-wide, and the potential for others to arise
+using the "toc" on "sflap" protocols, this documentation really needs to
+be flexible for multi-lingual support and participation.
+
+Hence, on 10 May 2000, the entire project documentation was moved to this
+doc/en/ subdirectory.  Additional pointer files were added in the root of
+the project and in the new doc/ subdirectory to better explain this move.
+
+"en" for English, is just ONE of the 136 language codes in ISO-639.

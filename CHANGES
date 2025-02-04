@@ -1,0 +1,340 @@
+0.90 06/25/01       Added default foreground settings for text and entries.
+            Added the ability for TiK to load only specific packages without 
+            having to remove them from the package directory (using pkgrc file).  
+            Updated example.pkgrc to reflect selective package feature.  Added 
+            quote recognition to away messages.  Added "%D" option so that 
+            people can have "Y2k" compliant dates in their away messages.
+            Added custom sound support for initial recieved IMs.  Added new 
+            button style (-relief flat).  Font size scale numbers adjusted so 
+            they're less obtrusive.  Away messages with no nick don't create 
+            ugly menu options anymore.  tik_filters moved from toc.tcl to 
+            configandpkg.tcl.  away, getaway, remotegui, and remoteadmin 
+            packages use tik_filters.  Added google and googleLinux search 
+            options.  tik_play_sound now exits gracefully if the soundfile 
+            doesn't exist.  The preferences system no longer overwrites
+            the user rc files, but uses the "auto" rc files instead.  Fixed 
+            bbar resizing in chat (cpforbes patch id #102172).  Fixed AOL 
+            away bug.  Fixed away bug where away was trying to talk to the 
+            toc server after signoff.  Fixed "too many arguments" quickchat 
+            bug.  Fixed recieve file bug.  Fixed remotegui "close" bug.  Fixed 
+            prefs "user info" bug.  Fixed chat user list bug.  Fixed tik_show_url 
+            being called with too many arguments.  Fixed minor IM_OUT bug in 
+            protocol.tcl.  Fixed various config directory bugs.  Fixed bug with 
+            awaynicks/autoreconnect.  Fixed inability to copy from text areas 
+            under Windows platforms (must set ::TIK(options,COPY) to "1" to
+            enable). Fixed initial sound bug. Fixed warning decrease bug. Added
+            more security to remoteadmin (auto-logged off when client signs
+            off). Fixed quotes bug for away messages. Fixed BR tag bug.
+            Checked code with TclPro Checker. Added new version notification system. 
+	    Dynamic buddy info can now be automatically updated at a user-defined
+	    interval. Package settings should be stored in tikrc again, not
+            pkgrc. Added selective package loading. 
+	    Misc other additions, fixes, and such.
+
+
+0.89 07/25/00       Added gui preferences system. Added tooltips 
+	      (balloon help). TIK(configDir) is created with 0600 permissions
+	      if possible. most "packages" migrated to the components 
+	      directory. awayrc file added to take care of away/idle/info
+              messages. tik now allows you to configure it and specify 
+	      TIK(configDir) on the first launch. example.tikrc/pre were
+	      removed becaue the preferences gui generates these files, fully
+	      commented. PLEASE MAKE BACKUPS OF YOUR CURRENT TIKRC AND TIKPRE
+              FILES. While there is a backup system, it may have bugs. added
+	      pkgrc file. also some other stuff i forgot...
+
+
+0.87 05/22/00       Now saves non-normalized names in .config files. 
+	      Added away msg delay. Added away msg nicks. 
+	  	Syntax: away::register awaymsg awaynick
+	      (Awaynick is optional) 
+	      Instant message remote administration server and gui.
+ 	      Offline group now optional. Added silent away mode. Fixed
+	      tikrc option of putting 'Help' menu in Packages menu. Made some
+              of the .wav files smaller using sox (dooropen.wav, DoorSlam.wav
+	      and Pounce.wav had to stay large to maintain their quality).
+	      Offline group now optional. Away now unregisters on window close.
+	      Exporting a buddy list immediately after editing the list works.
+	      Misc. other fixes.
+	      
+
+0.86 05/07/00  	    New (smaller) pounce sound, featuring Shira, the cat. 
+	      Option to eval commands automatically when starting up TiK. 
+              Added Beat keepalive package. Added filetrans package 
+              (receive only). Removed deutsch strs from core and moved them 
+              to alternative languages section of tik.sourceforge.net. 
+              More Tcl/Tk 8.0 compatibility. Added getaway package to retrieve
+              a  buddy's away message. More text buttons replaced with 
+              graphical ones. Split 'Tools' menu into 'Config' and 'Packages'
+              menus. Fixed idle update bugs. Fixed the smiley-within-a-word
+              problem. Fixed the ctrl+shift+6 smiley problem. Added more
+              /bcast options. probably something else, but i forgot. . .
+	
+0.85 04/30/00      Button bar added to IIM, quickpounce, and chat windows. 
+              Bbar procs were globalized, etc. Added graphical buttons to 
+              chat window, away message package, and pounce/qpounce.
+              Added options for disabling IM/chat logging. Now if TiK detects
+              tcl/tk < 8.1, it will disable smileys and the preproc, and
+              pop up an error message (relax, the error message is
+              disableable (urk...nice word there :p ) ) Another notification
+              was added to the about menu.
+        
+0.84 04/24/00      Added strikeout support, made the bbar on by default, 
+              put 'more' button on sign on screen... you'll see why. new 
+	      bbar icons. fixed tiktools regexp bugs. added more tiktools 
+	      features (date, day, broadcast, etc). Added  all 16 graphical 
+              emoticons that win32 aim has, removed ftrbar. added buddy info 
+              box. split tik.tcl into numerous files. added buddylog.
+	      added offline group on buddylist with offline buddies. added
+	      quickpounce. All images are loaded globally for better
+	      performance. New idle icon. HTML tags are inserted where cursor
+	      is, not at the end of th eline.
+
+0.83 04/05/00      Font, font size, and background color support added. 
+	      Button bar with buttons for bold, italic, underline, 
+              font size, and color selection added. Color button removed
+	      from footer bar. Header and footer boxes added to button bar.
+	      Added option of timestamps being always on. Scrollbars made 
+	      smaller by default. Added default firewall configuration for 
+              the TOC and AUTH lists on the sign on screen. The proxy 
+	      selection list used to be -relief flat for some reason. as a
+	      perfectionist i had to change that (tikpre) :)
+	      Mapped alt+keys to button bar functions. graphical buttons are
+              now an option (smaller, too). added per-user package support.
+	      now buddy popup shows 'idle' instead of 'available' when
+	      applicable. Mapped alt+comma and period to font scale.
+	      Changed path structure for more cross platform compatibility.
+              As a result, some packages do not work (particularly the
+              weather package, which we cannot do anything about right now).
+	      added linux default sound play routine. fixed symlink problems. 
+              Hmm, this should have been 0.84... :)
+
+0.82 03/22/00      Italic-bold HTML tag nesting now works. Screen name color is
+	      now longer hard coded and is configurable in the tikrc file.
+	      Imcapture timestamps now only stamps time if timestamps are
+	      set to be displayed. Chatcapture timestamps put in.
+	      More tiktools features (/brb, /time, /signoff, /exit).
+	      New logo (thanks to photoshop master DewJazzOLP). New away
+	      icon on buddy list. New addition of idle icon. Away screen
+	      now goes away upon sign off or if you are booted. Chat 
+	      windows now disappear upon sign off or if you are booted.
+	      Hyperlinks are no longer terminated with a 't'.
+
+0.81 03/20/00      Removed hardcoding of relief groove & white background.
+	      Added those options to tikpre by default.
+	      Added option of automatically printing .signature file
+	      in buddy info are, as well as changed default info content.
+	      Added pounce on buddy when buddy comes back from away mode.
+	      Changed various URL's in source to point to new site. 
+	      Added MZhang's im capture and chat capture timestamps. 
+	      Now tiktools work on initial IM. toc.tcl was edited for 
+	      more reliability. TOC and AUTH lists put back in sign on screen.
+	      HTML hyperlinks now work.
+
+0.80 03/18/00       Slightly modified appearance to look more modern. 
+              Simplified sign on routine. Added the windows aim sounds to 
+              the media directory.
+
+0.79 03/18/00      Enables Ignore function in chat rooms.
+              Enables automatic conversion of URLs to links in the typed text.
+              Provides IRC like commands to change your password, format your
+              nickname etc.
+
+0.75 07/13/99      New Store Config option to backup the config locally but
+              still use the host config, unless the host config is empty
+              then the backup is used, this is now the default storage,
+              Quick Chat can now download a list of AOL chat rooms.
+              (a/s/l check anyone? :)
+
+0.74 07/01/99      Right mouse button now brings up a menu with actions you 
+              can perform on each user, buddy info now pops up on
+              roll over, new chat capture package, toc.tcl bug
+              fix.
+
+0.73 06/21/99      Hopefuly fix the BadWindow X Error caused by the new
+              flashing scrollbar, support im/chat background colors
+              (can ONLY be turned on from tikrc, see example.tikrc
+              for how), ignore align html tags, print out an error
+              if we can't find the example.* files (some distributions
+              have not been placing the example.* files with TiK),
+              -roast option should work.
+
+0.72 06/09/99      Options raiseim/raisechat now off by default since Tk 
+              and so many modern window managers don't get along,
+              new flashim option causes the scrollbar in im windows
+              to flash on a new message until you move your mouse
+              into the window.
+
+0.71 05/23/99      To determine idle time we now monitor the global 
+              mouse position [keith], Directory package released
+              again.
+
+0.70 05/14/99      Closing the ticker window doesn't cause an error, 
+              tell the server when we are unavailable, support 
+              new user class status field
+
+0.69 05/07/99      sflap.tcl supports server mode, new util.tcl file, 
+              idle time is always set internally now [kjr]
+
+0.68 04/24/99      Can have sounds on a per buddy basis for 
+              Arrive/Depart/Send/Receive [alellis], can turn off 
+              the different datatypes in the ticker [alellis], new
+              away codes [FuzzFace], timer before away idle messages
+              are sent, add buddy window doesn't close automatically [Eric],
+              moving the notice line in the ticker didn't always work.
+
+0.67 04/05/99      Color selection broke.
+
+0.66 04/01/99      Typos in English.strs [nogin], the removedelay option
+              wasn't being used [kjr], chat sounds now use different
+              variables finally, cim now displays a message when buddies 
+              signon/off during a IM converstation.
+
+0.65 03/29/99      IM window titles sometimes used the normalized screen name,
+              updated minimalist patch examples, better error handling
+              in sflap [nogin]
+
+0.64 03/23/99      The new Warning stuff didn't handle screen names with
+              spaces well [jamus], more German translations [4-tea-2]
+
+0.63 03/22/99      The Tac client is no longer part of TiK (see TiK home page 
+              for more information), the stocks.tcl package is no longer
+              included with TiK (see TiK package list for replacements),
+              SSL Proxy hopefully now supports Basic Authorization [Jan], 
+              more language file fixes [4-tea-2], confirmation dialog
+              before warning someone, TiK now uses the GPL.
+
+0.62 03/15/99      Many of the included packages now support l10n,
+              changing languages now updates the buddy display
+              and menus, new German-formal translation and 
+              other German updates [4-tea-2]
+
+0.61 03/12/99      Cleaned up some of l10n stuff, fix some incorrect 
+              spellings, idle auto away message support,
+              get info support in TAC [fangbuddy], includes test
+              German translation [4-tea-2].
+
+0.60 03/10/99      Group titles in the ticker were ignoring the color option,
+              incorporated persistent connection patch [ayn2], more
+              of the Minimalist patch included [kjr], allow page up/down
+              key press, first version of l10n support you can now
+              have language strs file for TiK.
+
+0.59 03/07/99      Help menu button right-justified [Bruce], bad HTML 
+              prevented newlines, sflap::close now called on SIGNOFF frame 
+              [dedrick], few more TAC changes [fangbuddy], tried to incorporate
+              most of the Minimalist patch [kjr].
+
+0.58 02/10/99      Many improvements to TAC [fangbuddy], the ticker now 
+              supports up to 7 lines, and you can specify which feed should 
+              appear on which line [Bruce], all packages have a version string
+              and date, about box shows pack versions now, HTTP Config 
+              moved to General Options, pounces are now removed from menu
+              correctly, exporting a config should now have the latest version.
+
+0.57 02/03/99      Right click to change search engine, new socket command
+              to allow events during sockets, buddy pounce has 
+              register cmd, buddy pounce handles only once set to
+              0 correctly.
+
+0.56 01/26/99 Away message set the auto response flag like they should, titles 
+              of IM windows now have idle and evil in them, typo in 
+              example.tikrc and HTTPProxy error message about variables to set,
+              ticker was using a stock variable by mistake.
+0.55 01/18/99      Fixed error message.
+
+0.54 01/15/99      Typo in the deiconify.
+
+0.53 01/14/99      New options to deiconify on new im message, raise/deiconify
+              on new chat messages, expand im entry space in conversation
+              windows; Chat window's close box removes you from chat
+              room correctly now, new help menu [ken], new HTTPProxy 
+              package if you must use a HTTP proxy [blalor], packages
+              that require web access will check to see if you have
+              setup the HTTP proxy.
+
+0.52 01/11/99      Tcl 8 check moved outside namespace construct (doesn't
+              exist in Tcl 7.x), cursor changes when over a link [blalor],
+              right clicking on a link shows the url [blalor], default win95
+              sound playing added, splitHTML didn't handling missing greater
+              then sign [vrg3], package reloading deletes the correct menus, 
+              can set the ticker geometry in tikrc, new Quick Chat package
+              to make it easier to get to chat rooms.
+
+0.51 12/11/98      Option to have input areas with scroll bars, more example 
+              color  schemes in tikpre, all toplevel wm classes set to "Tik", 
+              option  to set toplevel wm classes of IM and Chat windows to
+              something  different, search package honors options better,
+              Tac has all  error messages now, Tac has new "/s" and "." 
+              commands, packages are loaded in ASCII order, can turn off idle
+              reporting, right  click popups should show up fully on screen, 
+              icon titles make more sense, Control-C no longer closes windows,
+              try Control-.,  probably other fixes I can't remember.
+
+0.50 12/03/98      Major source clean up, can add people from IM window, 
+	      correct problems in README, Tac saves the buddy list to the 
+              server, better proxy support.
+
+0.25 11/20/98      Sound rules added for AIX and HP, errors first time using
+              TOC fixed, windows now have X class associated with them,
+              can set the colors of items in the buddy list, can do a
+              limited import of WIN95 config files.
+
+0.24 11/18/98     Few more SAG usage bugs fixed, stocks now retreived from AOL,
+              stocks package not loaded if using SOCKS, 2 new packages
+              search and mynews, ticker wraps correctly now.
+
+0.23 11/16/98      Info fixed, error with group type not being set, removed
+              local packages dir (too confusing), fixed a bunch of bugs
+              in the buddy ticker, 989:24 error explained.
+
+0.22 11/13/98      Changes to the package API, new ticker package, new demo
+              stock package, few small bug fixes.
+
+0.21 11/11/98      Support new server error messages and user class display,
+              warn user about large configs, minor bugs in graphical
+              buddy list (SAG) fixed, display group online/total.
+
+0.20 11/06/98      Major changes involving a graphical buddy list (SAG),
+              config files all live in a single directory now (~/.tik),
+              can now configure packages to auto load by placing them
+              in ~/.tik/packages, SFLAP sequence numbers didn't wrap 
+              correctly (oops!), every possible combination of 
+              Enter/Control-Enter sending the message or inserting
+              a newline is supported, config importing/exporting,
+              can also import from Java Client's AIM.cfg, can
+              now have local config file, 3 packages included
+              (pounce, away, imcapture)
+
+0.11 10/30/98      Minor annoying bug fix <PRE> wasn't being ignored.
+
+0.10 10/28/98      Color support (thanks vrg3), only ignore valid html
+              tags that we don't support (ie <g> works now), option to 
+              raise im windows on new ims, monitor ~/.tikrc for changes 
+              and auto reload, support a few more HTML tags.
+
+0.09 10/27/98      Wrong buddy depart sound name, new Toggle Options
+              menu, reloading rc files handles away messages
+              and auto signon correctly now, permit deny support.
+
+0.08 10/22/98      Fixed bugs introduced with multiline entries,
+              distribution now includes new terminal only AIM 
+              client (Tac), some more documentation,
+              automatically finds install dir, sound files can
+              be configured, new listserv mailing lists.
+
+0.07 10/18/98      Multiline entries are now possible, timestamps can be
+              turned off, new command line options, can store a
+              roasted password.
+
+0.06 10/16/98      Sound playing for IRIX & OSF1 machines, new ~/.tikpre,
+              windows resize a little better, menu bar, away support, info
+              changing support.
+
+0.05 10/08/98      Fixed socks problems, configTool.tcl included.
+
+0.04 10/06/98      Added support for more sounds, changing the fonts from 
+              .tikrc, sound playing output redirected, italic support, can
+              set info in config file, removed help buttons.
+
+0.03 09/25/98      Initial Version

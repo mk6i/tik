@@ -1,0 +1,39 @@
+The following code is an attempt to provide a standard method for using 
+http::geturl within TiK plugins to .
+
+-----------------------------------------------------------------------
+proc SomeCallback {token} {
+
+    # Check for the timeout, such as. . .
+    if {[http::status $token] == "timeout"} {
+
+        # The connectioned timed out.  
+        # There shouldn't be any data, so do whatever error handling
+        # needs to be done.
+        # You might also want to check for "eof" or "error"
+
+        # After finishing with your error handling, if there's
+        # nothing left to do. . . 
+        http::cleanup $token
+        return        
+    }
+
+    # When you're done with the data in token, remove it.
+    http::cleanup $token
+}
+
+htttp::geturl SomeUrl -command SomeCallback -timeout 30000
+
+-----------------------------------------------------------------------
+
+The important thing is to make sure that you:
+  A)  Use the "-timeout" option.  This ensures that trying to get an
+      address that is unreachable doesn't just hang in the background.
+      (See bug #104170).
+  B)  Use http::cleanup after you're done.  http::geturl doesn't re-use
+      the same token, and if you don't actively cleanup after each call
+      the tokens will start to pile up. 
+  C)  Remember that I'm not perfect and might've forgotten something.
+
+
+

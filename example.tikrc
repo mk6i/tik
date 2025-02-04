@@ -1,0 +1,484 @@
+###########
+# TIK Config File
+# 
+# Example ~/.tik/tikrc
+#
+# This file is sourced after the login window and buddy
+# window are created, but before they are shown.  If
+# you want color changes to show up, they should be in
+# ~/.tik/tikpre
+###########
+
+###########
+# CONFIG VARS
+#
+# Here is a list of the different vars you can set.
+# Just uncomment and change the string.
+###########
+
+################ OPEN PORT PROXY #####################
+
+# The TOC servers listen to EVERY port, if 5190 is blocked on your system
+# change it.  Many firewalls leave ports 21, 25, 80, or 6000 open.
+#set TOC(production,port) 5190
+
+################ HTTP PROXY #####################
+# If you need to use a HTTP proxy to access web pages then
+# set these.  This is ONLY for fetching web pages, and NOT used
+# for to connecting to the TOC servers.
+#
+#set HTTPPROXY "proxy.domain.com"     ;# Hostname of the web proxy
+#set HTTPPORT "3180"                  ;# Port of the web proxy
+#set TIK(options,HTTPProxy,enable) 1  ;# Enable the web proxy.
+
+################ SOCKS PROXY #####################
+# If you are using SOCKS you need to set the following things. The
+# proxy is used for connecting to the TOC server NOT for fetching web
+# pages. You *MUST* set TOC(production,host) to the ip address of
+# "toc.oscar.aol.com".  The suggested way to find out the ip address 
+# is "nslookup toc.oscar.aol.com" at the command line.  If this
+# this doesn't work please contact your network administrator.
+# We can not tell you the ip address of toc.oscar.aol.com or
+# how to get it, other then the above suggestion.
+#
+# WARNING: The ip address of toc.oscar.aol.com WILL change
+# sometimes.  Currently there is no good way to do a nslookup in tcl
+# that we are aware of, so you WILL need to change it once and a while.
+#
+#set SOCKSHOST "socks.domain.com"        ;# Hostname of YOUR socks machine
+#set SOCKSPORT 1080
+#set TOC(production,host) "10.10.10.10"  ;# IP of toc.oscar.aol.com
+#set USEPROXY Socks
+
+################ SSL/HTTP PROXY #####################
+# If you are using SSL/HTTP you need to set the following things.
+# This is used for connecting to the TOC server NOT for fetching web pages.
+#
+#set SSLHOST "ssl.domain.com"        ;# Hostname of YOUR ssl machine
+#set SSLPORT 3128
+#set TOC(production,port) "443"      ;# Most SSL proxies require this.
+#set USEPROXY "SSL/HTTP"
+
+#The following is ONLY needed if your SSL Proxy requires Basic Authorization:
+#set SSLNEEDAUTH 1
+#set SSLUSER sslusername
+#set SSLPASS sslpassword
+
+################ SIGN ON VARIABLES #####################
+# If you want the screenname or password field filled in.
+# Use ./tik.tcl -roast <pass> to get a roasted version of
+# the password so it isn't in clear text, although it isn't
+# any more secure then clear text.
+
+# Set screename
+#
+#    set SCREENNAME "myscreenname"
+
+# Set PASSWORD
+#
+#    set PASSWORD   "mypassword"
+
+#tik_signon                           ;#For auto login
+
+#set ::TIK(options,persistent) 1 ;# Reconnect when accidentally disconnected
+
+## Sound Files - Can use full paths if you want.
+## To turn off an individual sound just uncomment the 
+## correct line and change the sound file to "none".
+## Alternatively, set the sound file to "beep" to
+## beep on different events
+# set ::TIK(SOUND,Send)         Send.au
+# set ::TIK(SOUND,Receive)      Receive.au
+# set ::TIK(SOUND,ChatSend)     Send.au
+# set ::TIK(SOUND,ChatReceive)  Receive.au
+# set ::TIK(SOUND,Arrive)       BuddyArrive.au
+# set ::TIK(SOUND,Depart)       BuddyLeave.au
+
+## You can also have per buddy sounds for Send/Receive/Arrive/Depart
+## by setting ::TIK(SOUND,<normalized buddy name>,<event>)
+# set ::TIK(SOUND,example,Arrive)  SillyArrived.au
+
+###########
+# OPTIONS
+#
+# Options that control how the TiK app works.
+###########
+# Default OPTIONS
+set ::TIK(options,imtime)     1    ;# Display timestamps in IMs and imcapture?
+set ::TIK(options,chattime)   1    ;# Display timestamps in Chats and chatcapture?
+
+# uncomment the following if you don't want captures
+#set ::TIK(options,imcapture,use) 0
+#set ::TIK(options,chatcapture,use) 0
+
+# Always display timestamps in imcapture -- overrides the above
+# set ::TIK(options,imcapture,timestamp)   1
+# Always display timestamps in chatcapture -- overrides the above
+# set ::TIK(options,chatcapture,timestamp)   1
+
+# Heights:  
+#   ==  0 :One Line Entry.  Resizing keeps it 1 line
+#   >=  1 :Text Entry, Multiline.  Resizing may increase number of lines
+#   <= -1 :Text Entry, Multiline.  Same as >=1 but with scroll bar.
+set ::TIK(options,iimheight)  4    ;# Initial IM Entry Height
+set ::TIK(options,cimheight)  0    ;# Converation IM Entry Height
+set ::TIK(options,chatheight) 0    ;# Chat Entry Height
+
+set ::TIK(options,cimexpand)   0   ;# If cimheight is not 0, then this
+                                   ;# determins if the entry area expands
+                                   ;# on resize.
+
+# imcolor & chatcolor are bit fields -- OR the following together
+# 0x1 - Support foreground colors
+# 0x2 - Support character group background colors
+# 0x4 - Support body background colors
+set ::TIK(options,imcolor)          1           ;# Process IM colors how?
+set ::TIK(options,chatcolor)        1           ;# Process Chat colors how?
+
+set ::TIK(options,defaultchatcolor) "#000000"   ;# Default Chat color
+set ::TIK(options,defaultimcolor)   "#000000"   ;# Default IM color
+
+set ::TIK(options,windowgroup)   0     ;# Group TiK windows together
+
+
+## WARNING: Tk & some modern window manangers don't work well together
+## if rasieim, raisechat are turned on, you will see a 2 second pause.
+set ::TIK(options,raiseim)       0     ;# Raise IM window on new message
+set ::TIK(options,deiconifyim)   0     ;# Deiconify IM window on new message
+set ::TIK(options,raisechat)     0     ;# Raise Chat window on new message
+set ::TIK(options,deiconifychat) 0     ;# Deiconify Chat window on new message
+
+set ::TIK(options,monitorrc)     1     ;# Monitor rc file for changes?
+set ::TIK(options,monitorrctime) 20000 ;# Check for rc file changes how often (millisecs)
+set ::TIK(options,monitorpkg)     1     ;# Monitor pkgs for changes?
+set ::TIK(options,monitorpkgtime) 20000 ;# Check the pkg dir for changes how often (millisecs)
+
+# When receiving a new message we can flash the scroll bar.
+set ::TIK(options,flashim)          1           ;# Flash IM sb when new msg
+set ::TIK(options,flashimtime)      500         ;# ms between flashes
+set ::TIK(options,flashimcolor)     blue        ;# Flash color is
+
+set ::TIK(options,usepreproc)      1    ;# Use preprocessor
+set ::TIK(options,showofflinegroup) 1   ;# Show the Offline group
+set ::TIK(options,showgrouptotals) 1    ;# Show the group totals
+set ::TIK(options,showidletime)    1    ;# Show the idle time of buddies
+set ::TIK(options,showevil)        1	;# Show the evil level of buddies
+set ::TIK(options,showicons)       1    ;# Show the icons
+set ::TIK(options,padframe)        1    ;# Pad Buddy Window?
+set ::TIK(options,sagborderwidth)  2    ;# Border width for sag windows.
+
+# 0 - Enter/Ctl-Enter insert NewLine,  Send Button Sends
+# 1 - Ctl-Enter inserts NewLine,  Send Button/Enter Sends
+# 2 - Enter inserts NewLine,  Send Button/Ctl-Enter Sends
+# 3 - No Newlines,  Send Button/Ctl-Enter/Enter Sends
+set ::TIK(options,msgsend) 1
+
+# 0 - Use the config from the host
+# 1 - Use the config from ~/.tik/NSCREENNAME.config
+# 2 - Use the config from ~/.tik/NSCREENNAME.config & keep this config
+#     on the host.  (Remember the host has a 2k config limit!)
+# 3 - Use the config from the host, but backup locally, if host config
+#     is empty then use local config.
+set ::TIK(options,localconfig) 3
+
+# 0 - Don't report idle time
+# 1 - Report idle time
+set ::TIK(options,reportidle) 1
+set ::TIK(options,idlewatchmouse) 1    ;# Watch the global mouse pointer
+set ::TIK(options,reportidleafter) 900 ;# Report idle after this long (secs)
+set ::TIK(options,idleupdateinterval) 1 ;# Interval for idle updating (mins), 0 to disable.
+
+##
+# Balloon help toggles: These commands can be used to
+# enable/disable balloon help.
+# 
+# balloonhelp disable
+# balloonhelp off
+# balloonhelp enable
+# ballonnhelp on
+
+# Buddy Colors
+set ::TIK(options,buddymcolor) black
+set ::TIK(options,buddyocolor) blue
+set ::TIK(options,groupmcolor) black
+set ::TIK(options,groupocolor) red
+
+# Window Manager Classes
+set ::TIK(options,imWMClass) Tik
+set ::TIK(options,chatWMClass) Tik
+
+##### Ticker Package Options ####
+# The ticker now has tons of options, see the top of packages/ticker.tcl
+# for more info
+set ::TIK(options,Ticker,on)  0  ;# Ticker on?
+set ::TIK(options,Ticker,aim) 0  ;# Display AIM buddies?
+#set ::TIK(options,Ticker,geometry) 670x26+215+5    ;# Location of Ticker
+#set ::TIK(options,Ticker,lines)                 2  ;# Number of lines
+#set ::TIK(options,Ticker,AIM,line)              0  ;# Buddies on what line?
+#set ::TIK(options,Ticker,notice,line)           1  ;# Notice on what line?
+#set ::TIK(options,Ticker,SlashMeat,line)        0  ;# SlashMeat on what line?
+#set ::TIK(options,Ticker,Stocks,line)           0
+#set ::TIK(options,Ticker,Wx,line)               0
+
+##### Stock Package Options ####
+set ::TIK(options,Stock,update)  300000      ;# Update Time (ms)
+
+##### Search Package Options #### 
+set ::TIK(options,Search,display) 1          ;# display search?
+set ::TIK(options,Search,default) "NetFind"  ;# Default engine
+
+##### Away Package Options ####
+## How many times do we send an away message to a particular user?  
+## Now by default -1 (infinite) since there is a default delay for 30 secs
+#set ::TIK(options,Away,sendmax) -1
+
+## If sendmax is set to -1 (always send), then set this delay to a positive
+## value to implement a delay
+#set ::TIK(options,Away,delay) 30000
+
+## Do we send an idle message:
+#set ::TIK(options,Away,sendidle) 0 
+
+## How many seconds do we wait before sending the idle message.
+## This gives us a chance to type a answer before it is sent.
+#set ::TIK(options,Away,idlewait) 5
+
+## What is the idle away msg:
+set ::TIK(options,Away,idlemsg) \
+    "Sorry %n, I'm away from my computer right now. -- %N"
+
+## What command to use for %F substitution in away messages.
+## Set to 0 to disable.
+#set ::TIK(options,Away,Fcommand) /usr/games/fortune
+#
+# You can also use any of the %x codes in the Fcommand. The 
+# list of codes is:
+#
+# %n - Who sent the IM
+# %N - Your screen name
+# %i - Idle time in seconds
+# %I - Idle time in minutes
+# %e - Your current evil level 
+# %j - Last TiK Event (Local Time)
+# %J - Last TiK Event (UTC/GMT)
+# %t - Current Time (Local)
+# %T - Current Time (UTC/GMT)
+# %F - Execute Command and Return Output 
+# %% - A percent sign
+#
+# For example, the following two commands will send you an email at
+# someone@somewhere.com when a buddy tries to reach you.
+#
+# set ::TIK(options,Away,idlemsg) \
+#    "Sorry %n, I'm away from my computer right now. -- %N %F"
+# set ::TIK(options,Away,Fcommand) "echo \"AIM Message from %n at %t\" | mail someone@somewhere.com"
+#
+
+## Set to 0 to use the default tik_show_url for info and dir instead
+## of pop-up box
+#set ::TIK(options,boxinfo,use) 1
+## Set geometry of info boxes
+#set ::TIK(options,boxinfo,geometry) "300x350"
+
+##### Pounce Package Options ####
+# To register people to pounce use (the defaults are included)
+# pounce::register <name> <onlyonce 0> <sound 1> <popim 1> <sendim 0> <msg ""> 
+#                  <notaway 1> <execcmd 0> <cmdstr ""> <idlepounce 0>
+# Example 1: pounce::register TicTocTikTac
+# Example 2: pounce::register TicTocTikTac 0 1 1 1 "Auto send this" 1 0 "" 1
+#
+
+###########
+# WM Commands
+#
+# The login window and buddy window are created on start up
+# so you can set the size and stuff here.
+###########
+
+#wm geometry .buddy 250x800-15+80
+#wm geometry .login +400+400
+
+#If you set SCREENNAME above then this will take us to the password
+#focus .login.pwE
+
+###########
+# FUNCTIONS
+#
+# Tcl lets you override functions, here are some of the 
+# functions you may need to replace, since their default 
+# implementation is platform specific.
+###########
+
+# Use the currently open netscape window to display
+# URLS.  Ignore the window param for now.
+
+#proc tik_show_url {window url} {
+##Default: Use Netscape
+#    catch {exec netscape -remote openURL($url) &}
+##Use KDE Browser
+#    catch {exec kfmclient exec $url &}
+#}
+
+# You may have to write your own play sound method, we include
+# some examples here and see tik.tcl for more examples.  Please send 
+# any working routines to daspek@daspek.com along with output 
+# of `uname -s` and platform info.  SOUNDPLAYING is used to keep 
+# multiple sounds from playing at the same time.
+
+##Default Implementation -- 
+#   set ::TIK(SOUNDROUTINE) {dd if=$soundfile of=/dev/audio 2> /dev/null &}
+##Use "play" which is already installed on some machines, this usually uses SOXs
+#   set ::TIK(SOUNDROUTINE) {play $soundfile 2> /dev/null &}
+##SOX Implementation -- Sheraz Sharif
+#   set ::TIK(SOUNDROUTINE) {sox $soundfile -t .au - > /dev/audio &}
+##NAS (Network Audio System) Implementation -- 
+#   set ::TIK(SOUNDROUTINE) {/usr/local/bin/auplay $soundfile &}
+##Windows 95: wplany Implementation --
+#   set ::TIK(SOUNDROUTINE) {wplany $soundfile &}
+##ESDPlay Implementation -- Stevie Strickland  
+#   set ::TIK(SOUNDROUTINE) {esdplay $soundfile &}
+#}
+
+# Uncomment this to disable sound. 1 disables sound 0 or nothing enables it.
+# set ::SOUNDPLAYING 1
+
+###########
+# INFO
+#
+# Want to set your info? Shameless default plug here. :-)
+#If you want your info to print your .signature file uncomment
+#this and comment the next one. change 'root' to your home
+#directory. i tried to do 'cat ~/.signature' but it did not work
+#for some reason. (daspek)
+###########
+
+#tik_set_info [exec cat /root/.signature]
+
+tik_set_info {This is my <B>Cool</B> instant messaging client, TiK!  Get it at <a href="http://tik.sourceforge.net">http://tik.sourceforge.net</a>}
+
+
+
+# If you would like sounds disabled while away, uncomment the following:
+# set ::TIK(options,silentaway) 1
+
+###########
+# Minimalist - kjr
+# If you want to make the buddy list less cluttered.  Also need
+# to change the tikstrs and tikpre file.  See example.* 
+###########
+#pack forget .buddy.im            ;# Remove the buttons from the buddy list
+#pack forget .buddy.chat          ;# You can still use Control-[icl] to
+#pack forget .buddy.info          ;# im, chat, or get info
+#pack forget .buddy.list.sb       ;# Remove the scrollbar from the buddy list
+
+# Move help Menu to first item in Packages
+#if {[catch {.menubar delete [tik_str M_HELP]}] == 0} {
+#   .toolsMenu insert 0 cascade -label [tik_str M_HELP] -menu .menubar.help
+#}
+
+#set ::TIK(options,showgrouptotals) 0    ;# Don't show the group totals
+#set ::TIK(options,showidletime)    0    ;# Don't show the idle time of buddies
+#set ::TIK(options,reportidleafter) 900  ;# Report idle after this long (secs)
+                                         ;# this doesn't effect packages.
+#set ::TIK(options,showicons)       0    ;# Don't show ANY icons
+#set ::TIK(options,removedelay)     0    ;# Change icons right away
+
+###########
+# add next line to automatically ignore people on your deny list when
+# they enter the chat room or set 1 to zero to disable the option 
+###########
+# set ::TIK(options,autoignoredeny) 1 
+
+###########
+# add this line and change appropriately to specify where your fortune program is located 
+###########
+# set ::TIK(options,fortuneprog) /pkg/local/bin/fortune 
+
+###########
+# add this line after changing appropriately to specify where your webster program is located 
+###########
+# set ::TIK(options,websterprog) /pkg/local/bin/webster
+
+###########
+# screen name colors
+###########
+set ::TIK(options,mysncolor) blue
+set ::TIK(options,othersncolor) red
+
+###########
+# font options
+###########
+set ::TIK(options,Font,basesize) 12
+set ::TIK(options,Font,userelsize) 0    ;# use basesize for relative font sizing
+set ::TIK(options,Font,baseface) "helvetica"
+set ::TIK(options,Font,defheader) ""	;# use a default header
+set ::TIK(options,Font,deffooter) ""	;# use a default footer
+tik_update_fonts
+
+set ::TIK(options,Font,showbgcolor) 0
+set ::TIK(options,Font,showfonts) 1
+set ::TIK(options,Font,showfontsizes) 1                
+
+##########
+# button bar
+# change this to 1 to show the button bar.
+##########
+set ::TIK(options,buttonbar) 1
+
+##########
+# Use graphical buttons instead of textual ones
+##########
+set ::TIK(options,iconbuttons) 1
+
+set ::TIK(options,focusrmstar) 0        ;# remove star from IM window on focus
+
+set ::TIK(options,showsmilies) 1        ;# Show graphical emoticons
+
+##########
+# Setup for graphical emoticons
+##########
+#set ::TIK(smilielist) [list {[0oO][=:]-?\)} angel.gif {[=:]-?D} bigsmile.gif {[=:]-?!} burp.gif {[=:]-?[xX]} crossedlips.gif {[=:]'-?\(} cry.gif {[=:]-?[\]\[]} embarrassed.gif {[=:]-?\*} kiss.gif {[=:]-?\$} moneymouth.gif {[=:]-?\(} sad.gif {[:=]-?[oO]} scream.gif {[=:]-?\)} smile.gif {8-?\)} smile8.gif {[=:](-?\\|-\/)} think.gif {[=:]-?[pPb]} tongue.gif {\;-?\)} wink.gif {>[=:][0oO]} yell.gif]
+
+#tik_load_emoticons
+
+#########
+# Setup for buddylog package
+#########
+# set ::TIK(options,buddylog,use) 1     ;# uncomment to activate buddy logger
+# set ::TIK(options,buddylog,logfile) [file join $::TIK(configDir) buddy.log.html]
+
+########
+# Configuration for Keepalive package
+########
+set ::TIK(options,beat,on) 1 ;# Turn keepalive on
+set ::TIK(options,beat,time) 240000 ;# keepalive interval (milliseconds)
+set ::TIK(options,beat,debug) 0 ;# Turn /dev/stderr debugging messages off
+## Keepalive Ticker Output Settings
+set ::TIK(options,beat,ticker) 0
+## 0 = Do not send the time of day to the ticker window (default)
+## 1 = After each keepalive is sent, send the local time of day to the ticker
+## 2 = After each keepalive is sent, send UTC/GMT time to the ticker
+## 3 = After each keepalive is sent, send internet time (swatch beats) to the ticker
+
+
+########
+# Configuration for Remote Control package
+########
+#set ::TIK(options,control,use) 1 ;# uncomment to turn remote control on
+#set ::TIK(options,control,file) [file join $::TIK(configDir) tik_control] ;# file which remote control should monitor
+#set ::tIK(options,control,time) 10000 ;# interval for remote file monitoring (ms)
+
+########
+# Configuration for Get Away package
+########
+#set ::TIK(options,getaway,use) ;# enable Get Away package
+#set ::TIK(options,getaway,notify) ;# notify upon away message request
+
+# If you're not using X and want to copy from IM-style windows, uncomment the 
+# following line.  (This isn't the prettiest method, but it works.)
+set ::TIK(options,COPY) 1
+
+# <!! PREFS don't touch this line !!>
+# This line allows the preferences system to work.
+catch {source [file join $::TIK(configDir) autorc]}
+

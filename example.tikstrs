@@ -1,0 +1,24 @@
+###########
+# TIK STRS Config File
+# 
+# Example ~/.tik/tikstrs
+#
+# This file is sourced after the other language files, so that
+# it is possible to override any string in TiK. 
+#
+# Whenever you change languages, or select a new language
+# first strs/default.strs is sourced, then strs/$language.strs
+# and finally ~/tik/tikstrs is sourced.
+###########
+
+
+# Minimalist Patch --kjr
+#
+# See the end of tikrc also.
+#tik_set_str BL_TITLE   "Buddies"   ;# Change Buddy List to just Buddies
+#tik_set_str CIM_RTITLE  "*%0 %1"   ;# Remove Conversation with
+#tik_set_str CIM_STITLE  "%0 %1"    ;# Remove Conversation with
+
+
+# If you want your screen name in the Buddy List Title:
+#tik_set_str BL_TITLE "Buddies (%n)"

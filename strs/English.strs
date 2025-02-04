@@ -1,0 +1,683 @@
+# The default language file, this file is always loaded, new files
+# only need to set the strings they want to change.
+# $Revision: 1.75 $
+#
+# Whenever you change languages, or select a new language
+# first strs/default.strs is sourced, then strs/$language.strs
+# and finally ~/.tik/tikstrs is sourced.
+#
+# You can use the following codes currently:
+# %n - your nickname
+# %N - your nickname normalized
+# %i - your idle time in seconds
+# %I - your idle time in minutes
+# %e - your evil level
+# %% - %
+
+# Then also %0 - %9 can be used depending on the string
+
+### Window Strings ###
+
+tik_set_str BL_TITLE      {Buddy List}
+tik_set_str BL_ICON       {Buddy List}
+tik_set_str BL_UCLASS     "User Class:"
+tik_set_str BL_IDLE       "Idle:"
+tik_set_str BL_EVIL       "Evil:"
+tik_set_str BL_STATUS     "Status:"
+tik_set_str BL_STAT_AWAY  "Away"
+tik_set_str BL_STAT_AVAIL "Available"
+tik_set_str BL_STAT_IDLE  "Idle"
+tik_set_str BL_ONLINE     "Online Since:"
+tik_set_str BL_NOTONLINE  "Not Online"
+tik_set_str BL_IDLEDSP    "(%0)"
+tik_set_str BL_EVILSP     "(E: %0)"
+
+tik_set_str CIM_STITLE     {Conversation with %0 %1}
+tik_set_str CIM_SICON      {%0 %1}
+tik_set_str CIM_RTITLE     {*Conversation with %0 %1}
+tik_set_str CIM_RICON      {*%0 %1}
+
+tik_set_str CIM_EXTRA00   {}
+tik_set_str CIM_EXTRA01   {(Evil: %0%%)}
+tik_set_str CIM_EXTRA10   {(Idle: %0)}
+tik_set_str CIM_EXTRA11   {(Idle: %0 Evil %1%%)}
+tik_set_str CIM_AUTORESP  { (auto response) }
+tik_set_str CIM_TIMESTAMP {%%H:%%M:%%S }
+tik_set_str CIM_COL_TITLE {IM Color}
+tik_set_str CIM_LOGOFF    {*** %0 signed off @ %1 ***<BR>}
+tik_set_str CIM_LOGON     {*** %0 signed on @ %1 ***<BR>}
+tik_set_str CIM_U_LOGOFF  {<b>*** %0 signed off @ %1 ***</b><br>}
+
+tik_set_str IIM_TITLE     {Send IM}
+tik_set_str IIM_ICON      {Send IM}
+tik_set_str IIM_TO        {To:}
+
+tik_set_str CINVITE_TITLE {Send IM}
+tik_set_str CINVITE_ICON  {Send IM}
+tik_set_str CINVITE_DIR   {Screen Names to Invite: (one per line)}
+tik_set_str CINVITE_MSGL  {Message to Send:}
+tik_set_str CINVITE_MSG   {You are invited to:}
+tik_set_str CINVITE_LOCL  {Location:}
+
+tik_set_str CACCEPT_TITLE {Invitation from: %0}
+tik_set_str CACCEPT_ICON  {Invitation from: %0}
+tik_set_str CACCEPT_LOC   {Chat Room: %0}
+
+tik_set_str CHAT_TITLE     {Chat in %0}
+tik_set_str CHAT_ICON      {%0}
+tik_set_str CHAT_ARRIVE    {%0 arrived.}
+tik_set_str CHAT_DEPART    {%0 departed.}
+tik_set_str CHAT_TIMESTAMP {%%H:%%M:%%S }
+tik_set_str CHAT_WHISPER   { (whispers) }
+tik_set_str CHAT_WHISPERTO { (whispers to %0) }
+tik_set_str CHAT_COL_TITLE {Chat Color}
+
+tik_set_str LOGIN_TITLE   {Login}
+tik_set_str LOGIN_ICON    {Login}
+tik_set_str LOGIN_TOCL    {TOC: }
+tik_set_str LOGIN_AUTHL   {AUTH: }
+tik_set_str LOGIN_SNL     {Screen Name:}
+tik_set_str LOGIN_PASSL   {Password:}
+tik_set_str LOGIN_REGL    {Register}
+tik_set_str LOGIN_SIGNL   {Sign on}
+tik_set_str LOGIN_REGURL  {http://aim.aol.com/aimnew/Aim/register.adp?promo=106723&pageset=Tik&client=yes}
+tik_set_str LOGIN_PROXYL  {Proxy:}
+tik_set_str LOGIN_MORE    {More}
+tik_set_str LOGIN_LESS    {Less}
+
+tik_set_str ADDB_TITLE    {Add Buddy}
+tik_set_str ADDB_ICON     {Add Buddy}
+tik_set_str ADDB_NAME     {Name: }
+tik_set_str ADDB_GROUP    {Group: }
+
+tik_set_str EDIT_TITLE    {Edit Buddy List}
+tik_set_str EDIT_ICON     {Edit Buddy List}
+
+tik_set_str PD_TITLE      {Edit Permit/Deny}
+tik_set_str PD_ICON       {Edit Permit/Deny}
+tik_set_str PD_MODE_1     {Allow anyone to contact me.}
+tik_set_str PD_MODE_3     {Permit only people in Permit Group}
+tik_set_str PD_MODE_4     {Deny everyone in Deny Group}
+
+tik_set_str ABOUT_TITLE   {About TiK Instant Messenger %0}
+tik_set_str ABOUT_ICON    {%0}
+
+tik_set_str BLOCK_TITLE   "Block Confirmation"
+tik_set_str BLOCK_BODY 	  "Add %0 to your deny list?\nUsers cannot communicate with you (and vice versa) while on your deny list."
+
+tik_set_str INFO_TITLE    {Temporary Info Change}
+tik_set_str INFO_ICON     {Info Change}
+tik_set_str INFO_MSG      "This will NOT change your tikrc\nUse the preferences system."
+tik_set_str INFO_L1       "About TiK Instant Messenger (TM)"
+tik_set_str INFO_L2       "TiK Version: %0 \n"
+tik_set_str INFO_L3       "Tcl Version: %0"
+tik_set_str INFO_L4       "Tk Version: %0"
+
+tik_set_str PROXY_TITLE   {Proxy Config: Direct Connection}
+tik_set_str PROXY_ICON    {Proxy Config}
+tik_set_str PROXY_MSG     "Use preferences system to make permanent.\nThe TOC servers listen on ALL ports."
+tik_set_str PROXY_TOCH    "TOC Host:"
+tik_set_str PROXY_TOCP    "TOC Port:"
+tik_set_str PROXY_CONFIG  "Configure"
+
+tik_set_str FONT_TITLE    "Font Config"
+tik_set_str FONT_ICON     "Font Config"
+tik_set_str FONT_WARN     "set '::TIK(options,Font,baseface)' and '::TIK(options,Font,basesize)'\n in tikrc to make permanent."
+tik_set_str FONT_FACE     "Default font face:"
+tik_set_str FONT_SIZE     "Default font size:"
+
+tik_set_str MISC_DCLR_TITLE   "Default Color"
+tik_set_str MISC_ICFG_TITLE   "Import TiK Config"
+tik_set_str MISC_ECFG_TITLE   "Export TiK Config"
+
+tik_set_str WARN_TITLE    "Warn Confirmation"
+tik_set_str WARN_ICON     "Warn Confirmation"
+tik_set_str WARN_L1       "Click the Warn button below to send a warning to %0.\nThis will raise %0's warning level and limit their activity."
+tik_set_str WARN_ANON     "Warn anonymously."
+tik_set_str WARN_L2       "Check this if you don't want your screen name revealed.\nAnonymous warnings are less severe."
+
+### Status ####
+
+tik_set_str STAT_CLOSED   {Connection Closed}
+tik_set_str STAT_CONN     {Connecting to Server}
+tik_set_str STAT_CBACK    {Come back soon!}
+
+### CLIENT ERRORS ###
+tik_set_str E_NOMSG       {Please enter a message to send.}
+tik_set_str E_MSGLONG     {Message to send is too long.}
+tik_set_str E_NEEDWHISPER {Please select a user to whisper to.}
+tik_set_str E_NEEDINFO    {Please select a user to get info on.}
+tik_set_str E_CHOOSEIGNRD {Please select chat participant(s) to ignore.}
+tik_set_str E_NEEDSN      {Please enter a screen name.}
+tik_set_str E_NEEDPASS    {Please enter a password.}
+tik_set_str E_NEEDLOC     {Please enter a location to chat in.}
+tik_set_str E_LOCLONG     {Location to send is too long.}
+tik_set_str E_NEEDBGROUP  {Please enter a Buddy Group.}
+tik_set_str E_NEEDBNAME   {Please enter a Buddy Name.}
+tik_set_str E_BIGCONFIG   {Sorry, your config exceeds the 2000 byte host maximum.}
+tik_set_str E_NWARN       {You were warned by %1! Your new warning level is %0%%.}
+tik_set_str E_AWARN       {You were warned anonymously! Your new warning level is %0%%.}
+
+### SERVER ERRORS ###
+tik_set_str E_SRV_901 {%0 not currently available.}
+tik_set_str E_SRV_902 {Warning of %0 is not allowed.}
+tik_set_str E_SRV_903 {A message has been dropped, you are exceeding the server speed limit.}
+tik_set_str E_SRV_911 {Error validating input.}
+tik_set_str E_SRV_912 {Invalid account.}
+tik_set_str E_SRV_913 {Error encountered while processing request.}
+tik_set_str E_SRV_914 {Service unavailable.}
+tik_set_str E_SRV_915 {Already one outstanding request.}
+tik_set_str E_SRV_950 {Chat in %0 is unavailable.}
+tik_set_str E_SRV_960 {You are sending message too fast to %0.}
+tik_set_str E_SRV_961 {You missed an im from %0 because it was too big.}
+tik_set_str E_SRV_962 {You missed an im from %0 because it was sent too fast.}
+tik_set_str E_SRV_970 {Failure}
+tik_set_str E_SRV_971 {Too many matches}
+tik_set_str E_SRV_972 {Need more qualifiers}
+tik_set_str E_SRV_973 {Directory service temporarily unreachable}
+tik_set_str E_SRV_974 {Email lookup restricted}
+tik_set_str E_SRV_975 {Keyword Ignored}
+tik_set_str E_SRV_976 {No Keywords}
+tik_set_str E_SRV_977 {User has no directory information}
+tik_set_str E_SRV_978 {Country not supported}
+tik_set_str E_SRV_979 {Unknown directory service error: %0}
+tik_set_str E_SRV_980 {Incorrect nickname or password.}
+tik_set_str E_SRV_981 {The service is temporarly unavailable.}
+tik_set_str E_SRV_982 {Your warning level is currently too high to sign on.}
+tik_set_str E_SRV_983 {You have been connecting and disconnecting too frequently.  Wait 10 minutes and try again.  If you continue to try, you will need to wait even longer.}
+tik_set_str E_SRV_989 {An unknown signon error has occurred: %0}
+tik_set_str E_SRV_UNK {Unknown error %0: %1}
+
+
+### Menu Text ###
+tik_set_str M_WARN    "Use Preferences to change tikrc"
+
+# File Menu
+tik_set_str M_FILE        "File"
+tik_set_str M_FILE_AB     "Add a Buddy"
+tik_set_str M_FILE_EB     "Edit Buddy List"
+tik_set_str M_FILE_PD     "Edit Permit/Deny"
+tik_set_str M_FILE_EBL    "Export Buddy List"
+tik_set_str M_FILE_IBL    "Import Buddy List"
+tik_set_str M_FILE_SO     "Signoff"
+tik_set_str M_FILE_Q      "Quit"
+
+# Configuration Menu
+tik_set_str M_CONF        "Config"
+tik_set_str M_CONF_CI     "Change Info"
+tik_set_str M_CONF_PREF	  "Preferences"
+
+# Tools Menu
+tik_set_str M_TOOLS       "Packages"
+tik_set_str M_TOOLS_CI    "Change Info"
+
+# Reload Menu
+tik_set_str M_RELOAD      "Reload"
+tik_set_str M_RELOAD_OPT  "Reload Options"
+tik_set_str M_RELOAD_PKG  "Reload Packages"
+tik_set_str M_RELOAD_COMPONENTS "Reload Program Files"
+
+# General Menu
+tik_set_str M_GEN         "General Options"
+tik_set_str M_GEN_SND     "Enable Sound"
+tik_set_str M_GEN_TOOLTIP "Enable balloon help"
+tik_set_str M_GEN_AWAYSND "Disable Sound While Away"
+tik_set_str M_GEN_PC      "Persistent Connection"
+tik_set_str M_GEN_MRC     "Monitor tikrc for changes."
+tik_set_str M_GEN_MPKG    "Monitor for package changes."
+tik_set_str M_GEN_IDLE    "Report idle time to server."
+
+# Msg Send Menu
+tik_set_str M_MSGSND      "Send messages with:"
+tik_set_str M_MSGSND_0    "Only with Send Button"
+tik_set_str M_MSGSND_1    "Send Button or Enter"
+tik_set_str M_MSGSND_2    "Send Button or Ctl-Enter"
+tik_set_str M_MSGSND_3    "Send Button, Enter, or Ctl-Enter"
+
+# Local Config Menu
+tik_set_str M_LCFG        "Store Config"
+tik_set_str M_LCFG_0      "Only on Host"
+tik_set_str M_LCFG_1      "Only Locally"
+tik_set_str M_LCFG_2      "Use Local and Store on Host"
+tik_set_str M_LCFG_3      "Use Host and Backup Locally"
+
+# SFLAP Debug Menu
+tik_set_str M_SFLAP        "SFLAP Debug Level"
+tik_set_str M_SFLAP_0      "Level 0 - No Debugging"
+tik_set_str M_SFLAP_1      "Level 1 - Some Debugging"
+tik_set_str M_SFLAP_2      "Level 2 - Full Debugging"
+
+# Language Menu
+tik_set_str M_LANG         "Language"
+
+# Preproc Menu
+tik_set_str M_PREPROC        "Preprocessor"
+tik_set_str M_PREPROC_USE    "Use message preprocessor (formerly tiktools)"
+
+# Display Options Menu
+tik_set_str M_DPY          "Display Options"
+tik_set_str M_DPY_CT       "Enable Chat Timestamps"
+tik_set_str M_DPY_IT       "Enable IM Timestamps"
+tik_set_str M_DPY_IR       "Raise IM windows on new message."
+tik_set_str M_DPY_CR       "Raise Chat windows on new message."
+tik_set_str M_DPY_ID       "Deiconify IM windows on new message."
+tik_set_str M_DPY_CD       "Deiconify Chat windows on new message."
+tik_set_str M_DPY_IF       "Flash IM Scrollbar on new message."
+tik_set_str M_DPY_OG       "Display Offline group"
+tik_set_str M_DPY_GRP      "Display group totals."
+tik_set_str M_DPY_ICON     "Show Buddy List Icons."
+tik_set_str M_DPY_BBAR     "Show button bar in IM windows."
+tik_set_str M_DPY_IBT      "Use icon instead of text buttons."
+tik_set_str M_DPY_FRS      "Remove star from IM windows on focus."
+tik_set_str M_DPY_SML      "Show graphical emoticons."
+
+# Color Options Menu
+tik_set_str M_COLOR        "Color Options"
+tik_set_str M_COLOR_EI     "Enable IM Colors"
+tik_set_str M_COLOR_EC     "Enable Chat Colors"
+tik_set_str M_COLOR_CDI    "Change Default IM Colors"
+tik_set_str M_COLOR_CDC    "Change Default Chat Colors"
+tik_set_str M_COLOR_EBGC   "Show bgcolor"
+
+# Font Options Menu
+tik_set_str M_FONT         "Font Options"
+tik_set_str M_FONT_CHANGE    "Change Default Font and Size"
+tik_set_str M_FONT_SHOWFONTS "Show Font Faces"
+tik_set_str M_FONT_SHOWSIZES "Show Font Sizes"
+tik_set_str M_FONT_USERELSIZE "Set relative sizes relative to default font size"
+
+# Help Menu
+tik_set_str M_HELP         "Help"
+tik_set_str M_HELP_ABOUT   "About"
+tik_set_str M_HELP_TIK     "TiK Home Page"
+tik_set_str M_HELP_TCL     "Ajuba Solutions Home Page"
+
+### BUTTONS ###
+tik_set_str B_NEWTIK	   "New Ver"
+tik_set_str B_IM           "Im"
+tik_set_str B_INFO         "Info"
+tik_set_str B_SETINFO      "Set Info"
+tik_set_str B_CHAT         "Chat"
+tik_set_str B_WARN         "Warn"
+tik_set_str B_SEND         "Send"
+tik_set_str B_CLOSE        "Close"
+tik_set_str B_CANCEL       "Cancel"
+tik_set_str B_BLOCK        "Block"
+tik_set_str B_COLOR        "Color"
+tik_set_str B_ADD          "Add"
+tik_set_str B_REMOVE       "Remove"
+tik_set_str B_DELETE       "Delete"
+tik_set_str B_WHISPER      "Whisper"
+tik_set_str B_IGNORE       "Ignore"
+tik_set_str B_INVITE       "Invite"
+tik_set_str B_OK           "Ok"
+tik_set_str B_ENABLED      "Enabled"
+tik_set_str B_DISABLED     "Disabled"
+tik_set_str B_ACCEPT       "Accept"
+
+### TiK PACKAGES ###
+
+# EMPDIR PACKAGE
+tik_set_str P_EMPDIR_M        "Employee Directory"
+tik_set_str P_EMPDIR_TITLE    "Employee Directory"
+tik_set_str P_EMPDIR_ICON     "Employee Directory"
+tik_set_str P_EMPDIR_LABEL    "Employee Name:"
+
+# ADMIN PACKAGE
+tik_set_str P_ADMIN_M         "Admin Services"
+tik_set_str P_NICK_TITLE      "Format Nickname"
+tik_set_str P_NICK_ICON       "Format Nickname"
+tik_set_str P_NICK_LABEL      "New Name:"
+tik_set_str P_NICK_CHANGED    "Nickname changed successfully."
+
+tik_set_str P_PASSWD_TITLE      "Format Nickname"
+tik_set_str P_PASSWD_ICON       "Format Nickname"
+tik_set_str P_OLD_PASSWD_LABEL  "Existing Password:"
+tik_set_str P_NEW_PASSWD_LABEL  "New Password:"
+tik_set_str P_CON_PASSWD_LABEL  "New Password:"
+tik_set_str P_PASSWD_CHANGED    "Password changed successfully."
+
+# AWAY PACKAGE
+tik_set_str P_AWAY_M          "Away Message"
+tik_set_str P_AWAY_M_NEW      "New Away Message"
+tik_set_str P_AWAY_M_IDLE     "Enable Idle Away Message"
+tik_set_str P_AWAY_M_SETIDLE  "Set Idle Away Message"
+tik_set_str P_AWAY_TITLE      "Away Message"
+tik_set_str P_AWAY_ICON       "Away Message"
+tik_set_str P_AWAY_BACK       "I'm Back"
+tik_set_str P_AWAY_NEW_TITLE  "New Away Message"
+tik_set_str P_AWAY_NEW_ICON   "New Away Message"
+tik_set_str P_AWAY_NEW_MSG    "This will NOT change your $::TIK(rcfile)\nUse the preferences system"
+tik_set_str P_AWAY_NEW_NICK   "Nickname:"
+tik_set_str P_AWAY_IDLE_TITLE "Idle Away Message"
+tik_set_str P_AWAY_IDLE_ICON  "Idle Away Message"
+tik_set_str P_AWAY_IDLE_MSG   "This will NOT change your tikrc\nUse the preferences system."
+tik_set_str P_AWAY_REG_NOTICE "Permanently add away messages in Preferences"
+tik_set_str P_AWAY_IDLE       "*** %0 seconds until away idle message. ***<BR>"
+tik_set_str P_AWAY_IDLE_DELAY "Delay for Idle Msg:"
+
+# HTTPProxy PACKAGE
+tik_set_str P_HTTPPROXY_M        "HTTP Proxy Config"
+tik_set_str P_HTTPPROXY_M_CONFIG "Configure"
+tik_set_str P_HTTPPROXY_M_E      "Enable Proxy"
+tik_set_str P_HTTPPROXY_C_TITLE  "Proxy Config: HTTP"
+tik_set_str P_HTTPPROXY_C_ICON   "Proxy Config: HTTP"
+tik_set_str P_HTTPPROXY_C_WARN   "set '::HTTPPROXY' and '::HTTPPOST'\n in your tikrc to make permanent."
+tik_set_str P_HTTPPROXY_C_HOST   "Proxy Host: "
+tik_set_str P_HTTPPROXY_C_PORT   "Proxy Port: "
+
+# imcapture Package
+tik_set_str P_IMCAPTURE_M        "IM Captures"
+tik_set_str P_IMCAPTURE_USE      "Enable IM captures"
+tik_set_str P_IMCAPTURE_M_VA     "View All"
+tik_set_str P_IMCAPTURE_FILEHDR  "<HTML><HEAD>\n<META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n<TITLE>IM Sessions with %0</TITLE></HEAD>\n<BODY>\n"
+tik_set_str P_IMCAPTURE_MSGHDR   "<HR><BR><H2 Align=Center>IM Session with %0 started at %1</H2><BR>\n"
+tik_set_str P_IMCAPTURE_MSGFMT   "<P>%0: %1</P>\n"
+tik_set_str P_IMCAPTURE_M_TS     "Always Timestamp"
+
+# chatcapture Package
+tik_set_str P_CHATCAPTURE_M      "Chat Captures"
+tik_set_str P_CHATCAPTURE_USE    "Enable chat captures"
+tik_set_str P_CHATCAPTURE_M_VA   "View All"
+tik_set_str P_CHATCAPTURE_ARRIVE "<P>%0 arrived</P>\n"
+tik_set_str P_CHATCAPTURE_DEPART "<P>%0 departed</P>\n"
+tik_set_str P_CHATCAPTURE_FILEHDR  "<HTML><HEAD>\n<META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n<TITLE>CHAT for %0</TITLE></HEAD>\n<BODY>\n"
+tik_set_str P_CHATCAPTURE_MSGHDR "<HR><BR><H2 Align=Center>CHAT for %0 joined at %1</H2><BR>\n"
+tik_set_str P_CHATCAPTURE_MSGFMT   "<P>%0:%1</P>\n"
+tik_set_str P_CHATCAPTURE_FOOTER "<H2 Align=Center>departed at %0</H2><HTML>\n"
+tik_set_str P_CHATCAPTURE_M_TS	 "Always Timestamp"
+
+# Pounce
+tik_set_str P_QPOUNCE_M		 "Quick Pounce"
+tik_set_str P_POUNCE_M           "Buddy Pounce"
+tik_set_str P_POUNCE_M_NEW       "New Pounce"
+tik_set_str P_POUNCE_N_TITLE     "Create New Pounce"
+tik_set_str P_QPOUNCE_N_TITLE	 "Create New Quick Pounce"
+tik_set_str P_POUNCE_N_ICON      "Create New Pounce"
+tik_set_str P_QPOUNCE_N_ICON     "Create New Quick Pounce"
+tik_set_str P_POUNCE_E_TITLE     "Edit Pounce for %0"
+tik_set_str P_POUNCE_E_ICON      "Edit Pounce for %0"
+tik_set_str P_QPOUNCE_E_TO	 "To:"
+tik_set_str P_POUNCE_E_TO        "Enter Buddy To Pounce: "
+tik_set_str P_POUNCE_E_POPIM     "Popup IM window on buddy signon."
+tik_set_str P_POUNCE_E_IM        "Send IM on buddy signon:"
+tik_set_str P_POUNCE_E_ONCE      "Pounce on buddy only once."
+tik_set_str P_POUNCE_E_SOUND     "Play Pounce Sound on buddy signon."
+tik_set_str P_POUNCE_E_EXEC      "Execute Command on buddy signon:"
+tik_set_str P_POUNCE_E_WNOTAWAY  "Pounce While Not Away"
+tik_set_str P_POUNCE_E_IDLEPOUNCE "Pounce when idle time goes to zero" 
+tik_set_str P_QPOUNCE_MSG	 "Note: All pounces are cleared \n upon exiting TiK."
+
+# Quick Chat
+tik_set_str P_QUICKCHAT_M       "Quick Chat"
+tik_set_str P_QUICKCHAT_M_NEW   "New Quick Chat"
+tik_set_str P_QUICKCHAT_M_REFRESH "Refresh AOL Chats"
+tik_set_str P_QUICKCHAT_M_TT    "TicToc Chat"
+tik_set_str P_QUICKCHAT_M_L     "Linux Chat"
+tik_set_str P_QUICKCHAT_N_TITLE "New Quick Chat"
+tik_set_str P_QUICKCHAT_N_ICON  "New Quick Chat"
+tik_set_str P_QUICKCHAT_N_WARN  "This will NOT change your $::TIK(rcfile)\nUse: quickchat::register <menu label> <room> <exchange>"
+tik_set_str P_QUICKCHAT_N_MENU  "Menu Label:"
+tik_set_str P_QUICKCHAT_N_CHAT  "Chat Room:"
+tik_set_str P_QUICKCHAT_N_EX    "Exchange:"
+
+# Search
+tik_set_str P_SEARCH_M          "Search Area"
+tik_set_str P_SEARCH_M_SHOW     "Show Search Area"
+tik_set_str P_SEARCH_ENGINE     "Search Engine"
+tik_set_str P_SEARCH_STR        "Search the web!"
+
+# File Transfer
+tik_set_str P_FILETRANS_M       "File Transfer"
+tik_set_str P_FILETRANS_M_SEND  "Send File"
+tik_set_str P_FILETRANS_E_UKNTRAN "The user %0 tried a currently unsupported file transfer."
+tik_set_str P_FILETRANS_A_BAD   "The user %0 is trying to send you a file of size %1\nWith remote name %2.\nWarning: The IP they have asked us to connect to\nis not the same IP the host complex sees."
+tik_set_str P_FILETRANS_A_GOOD  "The user %0 is trying to send you a file of size %1\nWith remote name %2."
+tik_set_str P_FILETRANS_A_TITLE  "Accept File Transfer"
+tik_set_str P_FILETRANS_A_ICON  "Accept File Transfer"
+tik_set_str P_FILETRANS_A_SAVE  "Save file as?"
+
+# Box Info
+tik_set_str P_BOXINFO_INFO	"User Info for %0"
+tik_set_str P_BOXINFO_DIR	"Dir Results"
+tik_set_str P_BOXINFO_M		"Box Info"
+tik_set_str P_BOXINFO_M_USE	"Use Box Info for dir and info"
+
+# Buddy Logger
+tik_set_str P_BUDDYLOG_M        "Buddy Logger"
+tik_set_str P_BUDDYLOG_M_USE    "Enable Buddy Logger"
+tik_set_str P_BUDDYLOG_M_ABOUT  "About"
+tik_set_str P_BUDDYLOG_LOAD     "Buddy Logger enabled on "
+tik_set_str P_BUDDYLOG_UNLOAD   "Buddy Logger disabled on "
+
+# File Control
+tik_set_str P_CONTROL_M         "File Control"
+tik_set_str P_CONTROL_M_USE       "Enable File Control"
+
+# Get Away
+tik_set_str P_GETAWAY_AWAY_W    "Away Message for %0"
+tik_set_str P_GETAWAY_M         "Get Away"
+tik_set_str P_GETAWAY_M_USE     "Enable Get Away"
+tik_set_str P_GETAWAY_M_NOTIFY  "Notify on away msg request"
+tik_set_str P_GETAWAY_NOTAWAY   "%0 is not away."
+tik_set_str P_GETAWAY_NOTAVAIL  "%0 is not online."
+
+# Remote Administration
+tik_set_str P_REMOTEADMIN_M     "Remote Administration"
+tik_set_str P_REMOTEADMIN_M_USE "Enable Remote Administration"
+
+# Remote Administration GUI
+tik_set_str P_REMOTEGUI_M      "Remote Admin GUI"
+tik_set_str P_REMOTEGUI_M_USE  "Enable Remote Admin GUI"
+tik_set_str P_REMOTEGUI_NEW    "Start Remote Admin"
+tik_set_str P_REMOTEGUI_ENTER_SERVER "Please enter a remote TiK!"
+tik_set_str P_REMOTEGUI_INVALID_SERVER "Please enter a remote TiK on your buddy list."
+tik_set_str P_REMOTEGUI_NOTONLINE "Remote TiK is not online!"
+tik_set_str P_REMOTEGUI_TITLE "Remote Admin session with %0"
+tik_set_str P_REMOTEGUI_ICON "Remote Admin session with %0"
+tik_set_str P_REMOTEGUI_NEW_TITLE "New Remote Admin Session"
+tik_set_str P_REMOTEGUI_NEW_ICON "New Remote Admin Session"
+tik_set_str P_REMOTEGUI_SERVER "Remote TiK name:"
+tik_set_str P_REMOTEGUI_PASSWD "Password:"
+tik_set_str P_REMOTEGUI_SETAWAY "Set Away"
+tik_set_str P_REMOTEGUI_SETBACK "Set Back"
+
+# Strings used for balloonhelp/tooltip
+
+tik_set_str TOOLTIP_LOGIN_REGL    "Create new account"
+tik_set_str TOOLTIP_LOGIN_SIGNL   "Login to AIM server"
+tik_set_str TOOLTIP_LOGIN_MORE    "Show more config options"
+tik_set_str TOOLTIP_LOGIN_LESS    "Show less config options"
+
+tik_set_str TOOLTIP_PROXY_CONFIG  "Set server host and port"
+
+tik_set_str TOOLTIP_IIM_TO        "Buddy name"
+
+tik_set_str TOOLTIP_B_NEWTIK "New TiK Version %0 Available"
+tik_set_str TOOLTIP_B_IM   "Send IM"
+tik_set_str TOOLTIP_B_INFO "Get user info"
+tik_set_str TOOLTIP_B_CHAT "Start chat session"
+tik_set_str TOOLTIP_B_SEND        "Send the message"
+tik_set_str TOOLTIP_B_CANCEL      "Cancel the operation"
+tik_set_str TOOLTIP_B_CLOSE       "Close this window"
+tik_set_str TOOLTIP_B_WARN        "Warn the user"
+tik_set_str TOOLTIP_B_BLOCK       "Block this user"
+tik_set_str TOOLTIP_B_ADD         "Add user to buddy list"
+tik_set_str TOOLTIP_B_WHISPER     "Whisper to selected user"
+tik_set_str TOOLTIP_B_IGNORE      "Ignore selected user"
+tik_set_str TOOLTIP_B_INVITE      "Invite user into chat session"
+tik_set_str TOOLTIP_B_BOLD        "Bold"
+tik_set_str TOOLTIP_B_UNDERLINE   "Underline"
+tik_set_str TOOLTIP_B_ITALICS     "Italic"
+tik_set_str TOOLTIP_B_STRIKEOUT   "Strikeout"
+tik_set_str TOOLTIP_B_FONTSIZE    "Font size"
+tik_set_str TOOLTIP_B_FONTCOLOR   "Font color"
+tik_set_str TOOLTIP_B_SMILEY      "Emoticons"
+tik_set_str TOOLTIP_B_SEND_INVIT  "Send chat invitation"
+tik_set_str TOOLTIP_B_ADD_INVIT   "Add buddy to chat list"
+tik_set_str TOOLTIP_B_ACCEPT_CHAT "Accept invitation"
+tik_set_str TOOLTIP_B_DECLIN_CHAT "Decline invitation"
+
+tik_set_str TOOLTIP_DEF_HEADER    "Header for all messages"
+
+## Strings for the gui configurator
+tik_set_str CONFIG_MAIN_TITLE	"TiK Preferences"
+tik_set_str CONFIG_MAIN_ICONNAME "TiK Preferences"
+
+tik_set_str CONFIG_CONNECT_TOC_TITLE "TOC Server"
+tik_set_str CONFIG_CONNECT_TOC_HOST "Host:"
+tik_set_str CONFIG_CONNECT_TOC_PORT "Port:"
+tik_set_str CONFIG_CONNECT_TOC_DEFAULT "Default"
+tik_set_str CONFIG_CONNECT_PROXY_CB "Connect Using Proxy"
+tik_set_str CONFIG_CONNECT_PROXY_PTITLE "Proxy Server"
+tik_set_str CONFIG_CONNECT_PROXY_HOST "Host:"
+tik_set_str CONFIG_CONNECT_PROXY_PORT "Port:"
+tik_set_str CONFIG_CONNECT_PROXY_PROTOCOL "Protocol"
+tik_set_str CONFIG_CONNECT_AUTH_TITLE "SSL Authentication"
+tik_set_str CONFIG_CONNECT_AUTH_CB "Use SSL Basic Auth."
+tik_set_str CONFIG_CONNECT_AUTH_USERNAME "Username:"
+tik_set_str CONFIG_CONNECT_AUTH_PASS "Password:"
+tik_set_str CONFIG_CONNECT_RECONNECT_CB "Reconnect automatically (persistent connection)"
+tik_set_str CONFIG_CONNECT_VERCHECK "Check for new TiK Versions"
+
+tik_set_str CONFIG_GEN_SIGNON     "Sign On"
+tik_set_str CONFIG_GEN_SCREENNAME "Screen Name"
+tik_set_str CONFIG_GEN_PASSWORD   "Password"
+tik_set_str CONFIG_GEN_AUTOSIGNON "Automatically sign on when TiK starts"
+tik_set_str CONFIG_GEN_SFLAP      "SFLAP Debug Level"
+tik_set_str CONFIG_GEN_LOGSTITLE  "IM/Chat Logs"
+tik_set_str CONFIG_GEN_LOGIM      "Log IM Conversations"
+tik_set_str CONFIG_GEN_LOGCHAT	  "Log Chat Conversations"
+tik_set_str CONFIG_GEN_TIMEIMLOGS "Timestamp IM Logs"
+tik_set_str CONFIG_GEN_TIMECHATLOGS "Timestamp Chat Logs"
+tik_set_str CONFIG_GEN_SENDKEYS   "Send Keys (Send ; Newline)"
+tik_set_str CONFIG_GEN_KEY0       "Enter/Ctl-Enter ; Send"
+tik_set_str CONFIG_GEN_KEY1       "Send/Enter ; Ctl-Enter"
+tik_set_str CONFIG_GEN_KEY2 	  "Send/Ctl-Enter ; Enter"
+tik_set_str CONFIG_GEN_KEY3       "Send/Ctl-Enter/Enter ; None"
+tik_set_str CONFIG_GEN_FILEMON    "File Monitoring"
+tik_set_str CONFIG_GEN_MONITORRC  "Monitor tikrc for changes"
+tik_set_str CONFIG_GEN_RCTIME     "tikrc check interval (ms)"
+tik_set_str CONFIG_GEN_PACKAGEMON "Monitor packages for changes"
+tik_set_str CONFIG_GEN_PACKAGETIME "package check interval (ms)"
+tik_set_str CONFIG_GEN_REPORTIDLE  "Report Idle Time"
+tik_set_str CONFIG_GEN_IDLEMOUSE   "Watch Mouse Pointer"
+tik_set_str CONFIG_GEN_IDLEAFTER  "Report Idle After"
+tik_set_str CONFIG_GEN_IDLESEC   "seconds."
+tik_set_str CONFIG_GEN_IDLEUPDATE "Update Idle Time Every"
+tik_set_str CONFIG_GEN_IDLEMIN   "minutes."
+tik_set_str CONFIG_GEN_BUDDYSTORE "Buddy List Storage"
+tik_set_str CONFIG_GEN_BUDDY0  "Use the config from the TOC server"
+tik_set_str CONFIG_GEN_BUDDY1  "Use the local config from screenname.config in your config directory"
+tik_set_str CONFIG_GEN_BUDDY2  "Use the local config and keep it backed up on the server (2k limit)"
+tik_set_str CONFIG_GEN_BUDDY3  "Use the config from the server but backup locally. If server config is empty, use local"
+
+tik_set_str CONFIG_SOUND_L1	"Sound Configuration"
+tik_set_str CONFIG_SOUND_ROUTINE "Sound routine (blank for default)"
+tik_set_str CONFIG_SOUND_SILENT "Disable sounds while away"
+tik_set_str CONFIG_SOUND_ENABLE	"Enable sound"
+tik_set_str CONFIG_SOUND_INITIAL "Initial IM sound"
+tik_set_str CONFIG_SOUND_SEND 	"Send sound"
+tik_set_str CONFIG_SOUND_RECEIVE "Receive sound"
+tik_set_str CONFIG_SOUND_CHATSEND "Chat send sound"
+tik_set_str CONFIG_SOUND_CHATREC  "Chat receive sound"
+tik_set_str CONFIG_SOUND_ARRIVE   "Buddy arrive sound"
+tik_set_str CONFIG_SOUND_DEPART	  "Buddy depart sound"
+tik_set_str CONFIG_SOUND_BROWSE   "Browse"
+tik_set_str CONFIG_SOUND_PREVIEW  "Preview"
+
+tik_set_str CONFIG_APP_IMTITLE         "IM/Chat"
+tik_set_str CONFIG_APP_IMTIMESTAMPS  "Show IM Timestamps"
+tik_set_str CONFIG_APP_CHATTIMESTAMPS "Show Chat Timestamps"
+tik_set_str CONFIG_APP_IIMHEIGHT     "Initial IM entry height"
+tik_set_str CONFIG_APP_IMHEIGHT	     "IM entry height"
+tik_set_str CONFIG_APP_CIMEXPAND     "Resizable IM entry"
+tik_set_str CONFIG_APP_IMCOLORS      "Process IM colors"
+tik_set_str CONFIG_APP_CHATCOLORS    "Process Chat colors"
+tik_set_str CONFIG_APP_MYIMCOLOR     "My default IM color"
+tik_set_str CONFIG_APP_MYCHATCOLOR   "My default Chat color"
+tik_set_str CONFIG_APP_FLASHSB	     "Flash scrlbr on new msg"
+tik_set_str CONFIG_APP_FLASHINTERVAL "Millisecs between flashes"
+tik_set_str CONFIG_APP_FLASHCOLOR    "Flash color"
+tik_set_str CONFIG_APP_SHOWBBAR      "Show button bar"
+tik_set_str CONFIG_APP_SHOWEMOTES    "Show graphical smileys"
+tik_set_str CONFIG_APP_FOCUSRMSTAR   "Focus removes * from title"
+tik_set_str CONFIG_APP_RAISEIM	     "Raise IM on new msg"
+tik_set_str CONFIG_APP_DEICONIFYIM   "Deiconify IM on new msg"
+tik_set_str CONFIG_APP_RAISECHAT     "Raise Chat on new msg"
+tik_set_str CONFIG_APP_DEICONIFYCHAT "Deiconify Chat on new msg"
+tik_set_str CONFIG_APP_MYSNCOLOR     "My screen name color"
+tik_set_str CONFIG_APP_OTHERSNCOLOR  "Other screen name color"
+tik_set_str CONFIG_APP_BUDDYTITLE    "Buddy List"
+tik_set_str CONFIG_APP_SHOWOFFLINE   "Show Offline group"
+tik_set_str CONFIG_APP_GROUPTOTALS   "Show group totals"
+tik_set_str CONFIG_APP_BUDDYIDLE     "Show buddy idle time"
+tik_set_str CONFIG_APP_BUDDYEVIL     "Show buddy evil level"
+tik_set_str CONFIG_APP_SHOWICONS     "Show icons"
+tik_set_str CONFIG_APP_PADBUDDYWIN   "Pad buddy window"
+tik_set_str CONFIG_APP_SAGBORDER     "SAG window border width"
+tik_set_str CONFIG_APP_BUDDYCOLOR    "Buddy color"
+tik_set_str CONFIG_APP_BUDDYCOLORMSG "Note: Buddy list background\
+				 color will only change after TiK\
+				 is restarted."
+tik_set_str CONFIG_APP_BSTATSCOLOR   "Buddy stats color"
+tik_set_str CONFIG_APP_BLISTCOLOR    "Buddy list color"
+tik_set_str CONFIG_APP_GROUPCOLOR    "Group color"
+tik_set_str CONFIG_APP_GSTATSCOLOR   "Group stats color"
+tik_set_str CONFIG_APP_SHOWSEARCH    "Show search field"
+tik_set_str CONFIG_APP_SEARCHENG     "Default search engine"
+tik_set_str CONFIG_APP_ICONBUTTONS   "Use graphical buttons"
+tik_set_str CONFIG_APP_BALLOONTITLE  "Balloon Help"
+tik_set_str CONFIG_APP_BALLOONUSE    "Use Balloon Help"
+tik_set_str CONFIG_APP_NAMEONBLIST   "Show SN on Top of Buddy List"
+tik_set_str CONFIG_APP_LANGTITLE     "Language"
+tik_set_str CONFIG_APP_LANG          "Language to use"
+tik_set_str CONFIG_APP_BGROUND       "Default background"
+tik_set_str CONFIG_APP_ABGROUND      "Active background"
+tik_set_str CONFIG_APP_TEXTBGROUND   "Text widget background"
+tik_set_str CONFIG_APP_TEXTFGROUND   "Text widget foreground"
+tik_set_str CONFIG_APP_ENTRYBGROUND  "Entry background"
+tik_set_str CONFIG_APP_ENTRYFGROUND  "Entry foreground"
+tik_set_str CONFIG_APP_SBBGROUND     "Scrollbar background"
+tik_set_str CONFIG_APP_BBGROUND      "Button background"
+tik_set_str CONFIG_APP_BFONT         "Button font"
+tik_set_str CONFIG_APP_BRELIEF       "Button relief"
+tik_set_str CONFIG_APP_MRELIEF       "Menu relief"
+tik_set_str CONFIG_APP_MBRELIEF      "Menubutton relief"
+tik_set_str CONFIG_APP_SBWIDTH       "Scrollbar width"
+tik_set_str CONFIG_APP_SBAPPLY       "Apply"
+tik_set_str CONFIG_APP_SELECT        "Select"
+
+tik_set_str CONFIG_AWAY_AWAYLABELS   "Away Msg Labels"
+tik_set_str CONFIG_AWAY_MESSAGEHDR   "Away Message"
+tik_set_str CONFIG_AWAY_LABELHDR     "Label"
+tik_set_str CONFIG_AWAY_ADD	     "Add"
+tik_set_str CONFIG_AWAY_EDIT         "Edit"
+tik_set_str CONFIG_AWAY_DELETE       "Delete"
+tik_set_str CONFIG_AWAY_EDITDONE     "Done"
+tik_set_str CONFIG_AWAY_ADDDONE      "Done"
+tik_set_str CONFIG_AWAY_AWAYDELAY    "Away delay (ms)"
+tik_set_str CONFIG_AWAY_IDLEUSE      "Use idle message"
+tik_set_str CONFIG_AWAY_IDLEDELAY    "Idle msg delay (sec)"
+tik_set_str CONFIG_AWAY_USEGETAWAY   "Use getaway"
+tik_set_str CONFIG_AWAY_NOTIFYGETAWAY "Notify on getaway"
+tik_set_str CONFIG_AWAY_CODEHEADING  "Away, idle, and info messages support\
+	\%x codes that insert a dynamic\n piece of information in an\
+	autoresponse. The list of \%x codes is:\n"
+tik_set_str CONFIG_AWAY_NCODE        "Who sent the IM"
+tik_set_str CONFIG_AWAY_CNCODE       "Your screen name"
+tik_set_str CONFIG_AWAY_ICODE        "Idle time in seconds"
+tik_set_str CONFIG_AWAY_CICODE       "Idle time in minutes"
+tik_set_str CONFIG_AWAY_ECODE        "Your current evil level"
+tik_set_str CONFIG_AWAY_JCODE        "Last TiK event (local time)"
+tik_set_str CONFIG_AWAY_CJCODE       "Last TiK event (UTC/GMT)"
+tik_set_str CONFIG_AWAY_TCODE        "Current time (local)"
+tik_set_str CONFIG_AWAY_CTCODE       "Current time (UTC/GMT)"
+tik_set_str CONFIG_AWAY_FCODE        "Execute command and return output"
+tik_set_str CONFIG_AWAY_PCODE        "A percent sign" 
+tik_set_str CONFIG_AWAY_UPDYINTERVAL "Update Interval (min)"
+tik_set_str CONFIG_AWAY_UPDYNINFO    "Auto Update Dynamic Info"
+
+tik_set_str CONFIG_BOTTOM_OK         "OK"
+tik_set_str CONFIG_BOTTOM_CANCEL     "Cancel"
+tik_set_str CONFIG_BOTTOM_APPLY      "Apply"

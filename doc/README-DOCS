@@ -1,0 +1,30 @@
+The subdirectories here are named for ISO-639 Language codes.
+Each may have a base for general documentation, and subdirectories
+by type (e.g. roff, Windows Help, HTML, texinfo)  The files in the
+base directory for each type are expected to be plain text in the
+most customary characterset for the language.
+
+E.g. in an ru/ subdirectory, text files would be expected to be in KOI8-R or 
+     Windows Cyrillic (1250?), or duplicated in subdirs by those names, if
+     both exist.
+
+     in an en/ subdirectory, ASCII or ISO-Latin-1
+
+
+To allow multi-lingual automatic selection of the documentation based
+on browser preferece (for the html/ subdirectories), create a common
+directory with server or filesystem symlinks, using a webserber which
+supports automatic language selection.  For example with Apache's
+"multi-views" feature:
+
+	mkdir htdocs/tik
+        ln -s htdocs/tik/en/ $tikhome/doc/en/
+	ln -s $tikhome/doc/en/html/index.html htdocs/tik/index.html.en
+
+  etc.
+
+In this way, people who already have accurate language preferences set
+in their browser will automatically get the available language, based
+on their preferences (and server defaults).  For those who do NOT have
+accurate preferences, they may still be able to select by language, from
+links in a language selection page (not currently included).

@@ -1,0 +1,12 @@
+
+TODO for TiK-0.91:
+##################
+-- originally slated tasks for 0.90 --
+V* Additions and refinements to preferences system.
+-delayed- Add package-specific area in gui prefs
+-delayed- Change Config and Packages menus to rely more on gui prefs.
+-delayed- Add more tooltips
+-delayed- Add/Change smiley regexps
+-delayed- aliases
+# etc.
+

@@ -1,0 +1,180 @@
+WARNING:
+
+     Some features in Preproc may be disabled or not work properly if you are
+     using a version of Tcl/Tk older than 8.1. Please upgrade to the latest
+     Tcl/Tk at http://dev.scriptics.com
+     Thanks
+
+About
+
+     Preproc (formerly TikTools) is a preprocessor for TiK instant messages 
+     and chats.
+
+Features
+
+  1. Enables automatic conversion of URLs to links in the typed text.
+  2. Provides IRC like commands to change your password, format your
+     nickname etc.
+  3. Provides methods of altering typed text.
+  4. Allows for the quick execution of commands.
+  5. Provides easy access to TiK features.
+
+Configuration
+
+     The following lines should have been already added to your ~/.tik/tikrc 
+     file. If they have not, here they are, along with an explanation.
+
+     # add next line to automatically ignore people on your deny list when
+     they enter the chat room
+     # or set 1 to zero to disable the option
+     set ::TIK(options,autoignoredeny) 1
+
+     # add this line and change appropriately to specify where your fortune
+     program is located
+     set ::TIK(options,fortuneprog) /pkg/local/bin/fortune
+
+     # add this line after changing appropriately to specify where your
+     webster program is located
+     set ::TIK(options,websterprog) /pkg/local/bin/webster
+
+Usage
+
+     After you have followed the above procedure the following commands
+     options will be available
+
+        1. Most of the urls present in the text you type will be
+           automatically converted to links. This include http links and
+           mail address.
+
+        2. You can set away mode by typing the following command in any
+           IM or chat window and pressing enter
+
+            /away text of the away message
+		or
+	    /away away_msg_nickname
+         
+            /brb will automatically spawn an away message that says 'brb'
+		unless 'brb' is a nickname to another away message, in which
+		case it will spawn said away message.
+
+            typing /away by itself will remove the away message. This is
+            equivalent to the /back command.
+
+         3. You can unset the away mode by using the command
+
+            /back
+
+            /away without any following message also has the same effect.
+
+         4. You can format your nickname by typing
+
+            /nick newformattedname
+
+            The usual length limits are enforced by the server itself.
+            You can only insert spaces and change the case of the letters
+            in your existing name.
+
+         5. You can change your password by typing
+
+            /password currentpassword newpassword
+
+         6. You can type a url with an anchor of your choice by using the
+            command
+
+            /url url optional anchor text
+
+            e.g. typing
+            /url  http://www.lordzork.com LordZork Industries
+            will create a link like this LordZork Industries.
+
+         7. The commands /webster, /lookup, /dict, /word and /define are
+            linked to the webster program to lookup the definition of a
+            word if you configured the  ::TIK(options,websterprog)
+            option specified above. so you can use
+
+            /dict peace
+
+            and it will send the definition of the word as a message.
+            ###  Webster is only available for Nextstep. Prismatic and I
+            ###  are working on an alternative. --daspek
+
+         8. The words /fortune or /yow are linked to the fortune program
+            if you configured the ::TIK(options,fortuneprog) option
+            above. So typing
+
+            /fortune
+
+            will send a fortune cookie message to the chat or IM.
+
+            You can also specify which fortune database you wish to use.
+            For example, /fortune sports will return a sports fortune.
+  
+         9. Typing /bw or /rev followed by the message with send the
+            message reversed.
+
+
+            /bw message
+            /rev message
+
+            e.g. typing
+            /rev Hello!
+            will print !olleH in the chat room or IM.
+
+        10. Typing /crazy, /lame or /eleet followed by a message will
+            send the message in the lame script kiddie notation
+
+             /lame message
+            /crazy message
+            /eleet message
+
+            e.g. type /lame Yo! I am an eleet haxor
+            will print Y0! 1 4M 4N 31337 H4X0R in the chat room or IM.
+
+        11. Typing /rot13 followed by a message converts that message to
+            rot13 encryption format and sends it to the chat room
+
+            /rot13 text message
+
+            e.g. typing
+            /rot13 Hello
+            will print Uryyb in the chat room.
+
+            /rot13 is not limited to 13 only you can use any positive
+            number within limits of Tcl. e.g. you can use /rot25 also.
+
+        12. Typing /time anywhere in the message returns the current time.
+
+        13. Typing /signoff signs off of AIM while still keeping TiK open.
+  
+        14. Typing /exit signs off and quits TiK.
+	
+	15. Typing /broadcast, /bcast, or /b<anything>cast, will broadcast a 
+            message to the last number of people you talked to as specified, 
+	    all the people  in a certain group, or all buddies.
+	    syntax: /bcast all <msg>
+                    /bcast <number> <msg>
+	            /bcast <group> <msg> 
+             ex.    /bcast all I'm going to get off now.
+                    would send "I'm going to get off now." to every buddy
+		    with whom you have an open IM window. However, 
+                
+                    /bcast 3 Turn my lights back off, guys. This is not funny.
+	 	    would send "Turn my lights back off, guys. This is not
+		    funny." to the last three people you've spoken with,
+	            provided you have IM windows open with them.
+
+		    /bcast Buddies I'm going now. Bye.
+                    would send "I'm going now. Bye." to everyone online
+                    in your 'Buddies' group, regardless of whether or not
+		    you have an open conversation with them.
+	
+	16. Typing /day anywhere in the message returns the current day.
+
+	17. Typing /date anywhere in the message returns the current date.
+
+	18. Typing /exec command executes the command and sends its output
+	    to the buddy.
+	    syntax: /exec <command>
+             ex.    /exec uptime
+                    would send the output of the 'uptime' command (current
+       		    uptime and load averages) to the buddy.

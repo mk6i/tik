@@ -1,0 +1,94 @@
+###########
+# TIK PRE Config File
+# 
+# Example ~/.tik/tikpre
+#
+# This file is sourced before any windows are created.
+# Basically it is useful for setting window options
+# and colors.  Most other things can go in ~/.tik/tikrc
+###########
+
+# You can set the language you want to use here.
+#set ::TIK(options,language) English
+
+# Send any good examples of color schemes to daspek@daspek.com
+# and we will add your examples to this file!  (Also let us know
+# if you want your email address listed as a contributor.)
+
+
+########## Tic Toc <tictoc-list@aol.net>
+## To set ALL background and foreground colors use:
+#option add *background #000080
+#option add *foreground #ffffff
+#option add *activeBackground #ffcc33
+#option add *activeForeground black
+## To set just the Button background and foreground colors use:
+#option add *Button.activeBackground #ffcc33
+#option add *Button.activeForeground black
+#option add *Button.background #0066ff
+#option add *Button.foreground #000000
+
+
+########## Yann Dubois <ydubois@sgi4.mcs.sdsmt.edu>
+#option add *background lightblue
+#option add *foreground black
+#option add *activeBackground #000000
+#option add *activeForeground white
+#option add *Button.activeBackground darkblue
+#option add *Button.activeForeground white
+#option add *Button.background white
+#option add *Button.foreground #000000
+
+# To set ALL background and foreground colors to white and dark grey I use:
+#option add *background white
+#option add *foreground #333333
+  
+# To make sure the buttons as well are sized correctly I use:
+#option add *font $::BOLDFONT
+
+########## jvp
+#option add *background #aeb2c3
+#option add *activeBackground #aeb2c3
+#option add *text*Background white
+#option add *list*Background white
+#option add *listS*Background #aeb2c3
+#option add *msg*Background white
+#option add *textS*Background #aeb2c3
+#option add *textS*activeBackground #aeb2c3
+#option add *to*Background white
+#option add *sb*Background #aeb2c3
+#option add *Button.activeBackground #aeb2c3
+#option add *Button.background #aeb2c3
+#option add *Button.font fixed 
+
+###########
+# Minimalist - kjr
+# If you want to make the buddy list less cluttered.  Also need
+# to change the tikstrs and tikrc file.  See example.* 
+###########
+#set ::TIK(options,padframe)        0    ;# Don't pad buddy window.
+#set ::TIK(options,sagborderwidth)  0    ;# Remove border from sag windows.
+
+
+#########################
+# Modern white theme 
+# Renders all text backgrounds white and 
+# changes button style to -relief groove
+#########################
+option add *Button.relief groove
+option add *Menu.relief groove
+option add *Text.background white
+option add *Entry.background white
+option add *Scrollbar.width 12
+option add *Menubutton.relief groove
+
+
+############
+# Keepalive package menu settings
+############
+set ::TIK(options,beat,rip) 0 ;# do not use tearoff menus to control beat
+
+# <!! PREFS don't touch this line !!>
+# This line allows the preferences system to work.
+catch {source [file join $::TIK(configDir) autopre]}
+

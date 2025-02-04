@@ -1,0 +1,63 @@
+0.90 Public Release - 06/25/01
+
+INTRODUCTION --
+
+  TiK is a pure Tcl/Tk 8.1 version of AOL Instant Messenger (AIM).  The 
+  TiK client began its life as a scaled down version of the native Windows 
+  and Macintosh clients.  However, TiK now has most of the features the 
+  native clients have, plus some extras.  TiK includes a graphical buddy 
+  list display plus packages for away messages, buddy pounce, buddy 
+  ticker, quick chat, and im capturing.  It is very easy for end users 
+  to add new features to TiK, using Tcl/Tk.  TiK is meant to give UNIX 
+  users an alternative to the Java client.
+
+  While TiK does work on Windows and Macintosh platforms, we do not
+  test on these platforms, and provide no active support.  Most 
+  Windows and Macintosh users should use the native clients, available from
+  http://www.aol.com/aim/  However experienced Windows and Macintosh users 
+  are welcome to try out TiK.
+
+  TiK currently requires Tcl/Tk 8.1 or greater, as 8.1 has better regexp 
+  features among many other things. The latest release of Tcl/Tk is 
+  available from Scriptics at http://www.scriptics.com.
+
+HOMEPAGE --
+
+  Please check for new versions at http://tik.sourceforge.net,
+  before reporting bugs or feature requests.  Things are
+  changing rapidly right now.
+
+
+QUESTIONS --
+
+  Please post any question or suggestions you may have in one of the
+  forums at http://tik.sourceforge.net.
+
+
+PACKAGES --
+  tarting with TiK 0.83 there are two types of packages, global and
+  per-user. Per-user packages are located in ~/.tik/packages, while
+  global ones are located in tik/packages.
+
+
+PROTOCOL --
+
+  TiK uses the TOC application protocol which is documented in the PROTOCOL 
+  file.  We have provided a tcl implementation of TOC inside of toc.tcl.  The
+  TOC application protocol runs on top of SFLAP, which is a framing
+  transport protocol.  The TOC protocol is not the same as the full
+  protocol used by the native AOL Instant Messenger clients.
+
+
+IMPORTING/EXPORTING CONFIG -- 
+
+  TiK stores the buddy list on the server.  It is possible to import
+  and export the buddy list from the server using the configTool.tcl
+  program, or from the File menu in TiK.  The format of the saved config 
+  file is very simple, however it is NOT the same as that used by that 
+  Java client or native clients.
+
+  TiK can import the buddy list from the Java Client AIM.cfg file or from 
+  the config file for native windows and mac clients.  It doesn't import 
+  the permit/deny settings however.
+

@@ -1,0 +1,8 @@
+There is a new paths structure in TiK, implemented for maximum portability
+across platforms. Please look at the new example.tikrc for changes which need
+to be made to the media paths. In the future, no paths should be hardcoded,
+but instead use the file join $::TIK(BASEDIR) structure. Changes may also be
+needed in some of the packages (most notably the weather package).
+
+Additionally, in the distribution, the documentation has captured its
+own directory hierarchy.

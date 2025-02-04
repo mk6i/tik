@@ -1,0 +1,99 @@
+TiK Remote Administration
+
+WARNING: The remoteadmin package can be very very very dangerous! Use only if
+you know exactly what you are doing and the security implications of allowing
+somebody to run arbitrary Tcl/Tk commands on your machine. There is a very
+good reason the package is disabled by default! Enable this package at your
+own risk!
+
+TiK versions 0.87 and later include a new remote
+administration package that allows a user to remotely
+administer another TiK client through intant messages.
+
+In order to send administration commands through an
+instant message and not have them show up on the target
+computer, an ignore string had to be crated. Any
+messages sent to a tik client in <!--[this form]-->
+will be treated as a remote administration command. 
+Remote administration commands are sent through IM's
+just as normal messages are.
+
+The remote admin server currently supports the follwing
+commands:
+
+login <password>
+logoff
+setaway "away msg" or setaway <awaymessage nick>
+setback
+eval <command>
+
+
+Using the eval command, pretty much any other commands can be executed.
+An example remote administration session may go like this.
+<!--[login mypasswd374]-->
+Server: >>>>Login Successful!<<<<
+<!--[setaway "done at work, heading home. i'll be back at 5:30"]-->
+Server: >>>>Away Message Successfully Set to "donet at work, heading home. i'll be back at 5:30"<<<<
+<!--[eval exec br a2 on]--> (use your x10 equipment to turn your lights on :) )
+Server: >>>>Command Executed Successfully: (no output)<<<<
+<!--[eval exec uptime]-->
+Server: >>>>Command Executed Successfully:   3:27pm  up 14 days, 22:25,  4 users,  load average: 1.14, 1.26, 1.25<<<<
+<!--[logoff]-->
+Server: >>>>Logged Off<<<<
+
+Also included is the Remote Admin GUI package, which provides a graphical
+face with which to send administration commands (it also hides your password).
+The main remote gui window contains a status window, command entry, 
+"Set Away" button, "Set Back" button, "Send" button, and a "Close" button. 
+If the GUI is used, commands sent to the server are typed out simply as they
+are, without HTML comment notation.
+
+Example:
+   eval exec uptime
+   Server: >>>>Command Executed Successfully:   3:27pm  up 14 days, 22:25,  4 users,  load average: 1.14, 1.26, 1.25<<<<
+
+Pressing the "Send" button sends the contents of the entry to the server as a
+command. To set the server's away message (a multi-word away message must be
+enclosed in quotes), type the message or message nickname and press "Set Away".
+
+Example:
+   "done with work, going home" (click on "Set Away")
+    Server: >>>>Away Message Successfully Set to "done with work, going home"<<<<
+
+    or
+ 
+    work (click on "Set Away")
+    Server: >>>>Away Message Successfully Set to "at work, you can reach me using my alternate name..."<<<<
+
+
+Pressing "Set Back" will take the server out of away mode. Pressing "Close"
+logs out of the server and destroys the remote administration GUI window.
+
+
+Configuration
+
+Due to its nature of being a powerful administration system through
+instant messages, remoteadmin employs an extensive authorization system.
+The following must be edited the server's tikrc file in order for 
+remoteadmin to work:
+
+set ::TIK(options,remoteadmin,use) 0
+set ::TIK(options,remoteadmin,passwd) "blahblahblah"
+set ::TIK(options,remoteadmin,allowall) 0
+set ::TIK(options,remoteadmin,authusers) [list user1 user2 user3 AndSoOn]
+
+remoteadmin,use must be set to 1, naturally, in order for remoteadmin to work.
+remoteadmin,passd should contain your desired password, for example 
+   remoteadmin,passwd "mypassword1235"
+if remoteadmin,allowall is set to 1, it will allow remote administration logins
+from any user who knows the password. This is STRONGLY not recommended.
+(options,remoteadmin,authusers) should be set to 'list' and then all the authorized
+   users.
+   Example:
+      set ::TIK(options,remoteadmin,authusers) [list daspek benbauer mengmengzh]
+
+
+No remote administration commands are permitted unless the remote user logged in.
+Remoteadmin is disabled by default.
+
+   

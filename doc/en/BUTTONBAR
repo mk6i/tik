@@ -1,0 +1,50 @@
+Starting at version 0.83 TiK includes a button bar by default.
+Below you will find a terse explanation about the button bar
+along with its features (some not very obvious).
+
+On the left end of the button bar there is a small text field.
+This is the 'header' box, and basically will appaend its
+contents to the beginning of your im and not clear itself
+upon send. This is intended for one conversation html tags.
+For example, putting <font size="16" face="utopia"> in the
+header box will append that to the beginning of all the IM's
+you send, and, thus, will make your conversation text be 16
+points and with the font 'Utopia.'
+
+On the right end is the complementary 'footer' text field.
+Intended for putting in the closing tags ( </font>, etc )
+at the end of your IM, this box is really unnecessary, as 
+TiK already closes any open tags automatically upon send.
+This field may be removed at a later time to make way for
+more button bar features.
+
+To the immediate right of the header box are the standard
+font style buttons, Bold, Italic, and Underline, respectively.
+Upon being pressed they place the appropriate html tag at the
+_end_ of your IM. You cannot select text and have it bold it.
+Pressing the button again pastes in the closing html tag.
+Since ctrl+b and ctrl+u are already bound to other functions
+(one space back and clear line, respectively), we had to
+bind alt+function to the button bar. Pressing alt+b, for
+instance, invokes the Bold button. All button presses are
+reset to their original state upon IM send.
+
+To the right of the underline button there is a font button
+and font slider. The font button places in an html tag at
+the end of the IM, <font size="fsize">, where fsize is the
+position of the slider. This means that the slider must be
+set before pressing the font button. It can either be moved
+with the mouse (drag it as necessary, left click somewhere
+to increment it 1 space in that direction, or middle click
+where you want the slider to set it there) or by using the
+keyboard. Alt+period and Alt+comma are mapped (because 
+above them are the symbols < and >, thus making it seem
+appropriate :) ). An example of font size usage would be
+typing, pressing and holding alt+period until the slider
+is in the desired position, and then pressing alt+f to
+paste in the font tag. Pressing alt+period or comma
+increments the size by 4 places.
+
+After the font size scale is the new color button. This
+used to be located on the footer bar but seems much more
+appropriate here.

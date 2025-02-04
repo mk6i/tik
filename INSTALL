@@ -1,0 +1,32 @@
+Requirements:
+Tcl/Tk 8.1 or above
+
+Installation:
+Change your current directory to the location in which you want 
+the 'tik' directory to be created. Make sure the TiK archive is
+in that directory.
+
+Decompress TiK by running the following for the different
+compression styles:
+
+  __________________________________________________________
+  | style   |           command                            |
+  |---------|----------------------------------------------|
+  | .tar.gz | tar zxf tik-x.yz.tar.gz                      |
+  |---------|----------------------------------------------|
+  | .zip    | unzip tik-x.yz.tar.gz                        |
+  |---------|----------------------------------------------|
+  |.tar.bz2 | bunzip2 tik-x.yz.tar.bz2; tar xf tik-x.yz.tar|
+  ---------------------------------------------------------
+
+
+To execute TiK type ./tik.tcl while in the tik directory. 
+
+Optionally, In order to be able to execute TiK from anywhere 
+you can add a symlink to a directory already in your path. 
+For example, 'ln -s /tikdirectory/tik/tik.tcl /usr/local/bin/tik'
+
+TiK will automatically put a .tik directory in your home directory,
+containing TiK's configuration files, ~/.tik/tikrc and ~/.tik/tikpre.
+
+These files will soon be better documented.

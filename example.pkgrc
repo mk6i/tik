@@ -1,0 +1,26 @@
+###################
+# TiK Package file
+# Package load options go here.
+# Package setting still go in tikrc
+###################
+
+# You can now get TiK to unload packages
+# dynamically without having to remove
+# them from the packages directories.
+# Just set the variable:
+#
+#    ::TIK(options,pkgname,load)
+#
+# to "0" for the package to be unloaded.
+# if you want the package to be reloaded,
+# set the variable to "1".  (Just 
+# uncommenting the variable in this file
+# won't work.  It has to be set.)
+#
+# Ex:
+# uncomment the lines below to have TiK 
+# refuse to load the remote packages and
+# if they're already loaded, TiK will unload
+# them.
+#set ::TIK(options,remoteadmin,load) 0
+#set ::TIK(options,remotegui,load) 0
