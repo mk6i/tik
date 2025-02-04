@@ -1433,19 +1433,24 @@ proc tik_write_examples {} {
 
 proc makeconfigdir {} {
     puts "Creating the directory $::TIK(configDir)"	
-    file mkdir $::TIK(configDir)
-    catch [file attributes -permissions $::TIK(configDir) 0600]
+    if {[catch {file attributes $::TIK(configDir) -permissions 0700} errMsg]} {
+        puts "Warning: Failed to set permissions on $::TIK(configDir): $errMsg"
+    }
     puts "Creating the directory [file join $::TIK(configDir) $::TIK(pkgDir)]"
     file mkdir [file join $::TIK(configDir) $::TIK(pkgDir)]
-    catch {exec chmod og-rwx $::TIK(configDir)}
+    if {[catch {exec chmod og-rwx [file join $::TIK(configDir) $::TIK(pkgDir)]} errMsg]} {
+        puts "Warning: Failed to set permissions on [file join $::TIK(configDir) $::TIK(pkgDir)]: $errMsg"
+    }
     tik_write_examples
     # Create the per-user directories if needed
     set ::TIK(userDirs) [list packages media strs]
     foreach directory $::TIK(userDirs) {
-	if { ! [file exists [file join $::TIK(configDir) $directory]] } {
-	    puts "Creating the directory [file join $::TIK(configDir) $directory]"
-	    file mkdir [file join $::TIK(configDir) $directory]
-	}
+        set dirPath [file join $::TIK(configDir) $directory]
+        if {![file exists $dirPath]} {
+            if {[catch {file mkdir $dirPath} errMsg]} {
+                puts "Error: Failed to create directory $dirPath - $errMsg"
+            }
+        }
     }
     set ::TIK(prefile)   [file join $::TIK(configDir) tikpre]
     set ::TIK(rcfile)    [file join $::TIK(configDir) tikrc]
