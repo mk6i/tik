@@ -1445,7 +1445,7 @@ proc makeconfigdir {} {
     # Create the per-user directories if needed
     set ::TIK(userDirs) [list packages media strs]
     foreach directory $::TIK(userDirs) {
-        set dirPath [file join $::TIK(configDir) $directory]
+        set dirPath [file normalize [file join $::TIK(configDir) $directory]]
         if {![file exists $dirPath]} {
             if {[catch {file mkdir $dirPath} errMsg]} {
                 puts "Error: Failed to create directory $dirPath - $errMsg"
