@@ -1411,18 +1411,45 @@ set ::SCREENNAME ""
 set ::NSCREENNAME ""
 
 proc tik_write_examples {} {
+    # Normalize configuration directory path
+    set configDir [file normalize $::TIK(configDir)]
+    set baseDir [file normalize $::TIK(BASEDIR)]
+
     foreach {file var} {awayrc awayfile \
                         pkgrc  pkgfile  \
                         tikpre prefile  \
                         tikrc  rcfile   \
                         tikstrs strsfile} {
-        # I kept the directory check to avoid a race condition
-        # where someone deletes the directory before the loop
-        # is finished.
-        if {[file exists $::TIK(configDir)] && ![file exists $::TIK($var)]} {
-            if {[file exists [file join $::TIK(BASEDIR) "example.$file"]]} {
-                puts "Copying example $file file to $::TIK(configDir)"
-                file copy [file join $::TIK(BASEDIR) "example.$file"] $::TIK($var)
+
+        set destFile [file normalize [file join $configDir $file]]
+        set exampleFile [file normalize [file join $baseDir "example.$file"]]
+
+        # Ensure config directory exists before proceeding
+        if {![file exists $configDir]} {
+            if {[catch {file mkdir $configDir} errMsg]} {
+                puts "Error: Failed to create directory $configDir - $errMsg"
+                return
+            }
+        }
+
+        # Ensure the destination file does not already exist
+        if {![file exists $destFile]} {
+            if {[file exists $exampleFile]} {
+                puts "Copying example $file file to $configDir"
+
+                # Ensure the destination directory exists before copying
+                set destDir [file dirname $destFile]
+                if {![file exists $destDir]} {
+                    if {[catch {file mkdir $destDir} errMsg]} {
+                        puts "Error: Failed to create destination directory $destDir - $errMsg"
+                        return
+                    }
+                }
+
+                # Now copy the example file to the destination
+                if {[catch {file copy $exampleFile $destFile} errMsg]} {
+                    puts "Error copying $exampleFile to $destFile: $errMsg"
+                }
             } else {
                 puts "This distribution of TiK did not come with the example $file file."
                 puts "Please visit http://tik.sourceforge.net for the full TiK distribution."
@@ -1432,33 +1459,65 @@ proc tik_write_examples {} {
 }
 
 proc makeconfigdir {} {
-    puts "Creating the directory $::TIK(configDir)"	
-    if {[catch {file attributes $::TIK(configDir) -permissions 0700} errMsg]} {
-        puts "Warning: Failed to set permissions on $::TIK(configDir): $errMsg"
+    # Normalize the configuration directory paths
+    set configDir [file normalize $::TIK(configDir)]
+    set pkgDir [file normalize [file join $configDir $::TIK(pkgDir)]]
+
+    puts "Creating the directory $configDir"
+    
+    # Ensure the config directory exists
+    if {![file exists $configDir]} {
+        if {[catch {file mkdir $configDir} errMsg]} {
+            puts "Error: Failed to create directory $configDir - $errMsg"
+            return
+        }
     }
-    puts "Creating the directory [file join $::TIK(configDir) $::TIK(pkgDir)]"
-    file mkdir [file join $::TIK(configDir) $::TIK(pkgDir)]
-    if {[catch {exec chmod og-rwx [file join $::TIK(configDir) $::TIK(pkgDir)]} errMsg]} {
-        puts "Warning: Failed to set permissions on [file join $::TIK(configDir) $::TIK(pkgDir)]: $errMsg"
+
+    # Set directory permissions (Only applies to Unix)
+    if {$::tcl_platform(platform) ne "windows"} {
+        if {[catch {file attributes $configDir -permissions 0700} errMsg]} {
+            puts "Warning: Failed to set permissions on $configDir: $errMsg"
+        }
     }
+
+    puts "Creating the directory $pkgDir"
+
+    # Ensure the package directory exists
+    if {![file exists $pkgDir]} {
+        if {[catch {file mkdir $pkgDir} errMsg]} {
+            puts "Error: Failed to create directory $pkgDir - $errMsg"
+            return
+        }
+    }
+
+    # Set permissions on pkgDir (Only applies to Unix)
+    if {$::tcl_platform(platform) ne "windows"} {
+        if {[catch {exec chmod og-rwx $pkgDir} errMsg]} {
+            puts "Warning: Failed to set permissions on $pkgDir: $errMsg"
+        }
+    }
+
+    # Call external function to write example files (assuming it exists)
     tik_write_examples
-    # Create the per-user directories if needed
+
+    # Create per-user directories if needed
     set ::TIK(userDirs) [list packages media strs]
     foreach directory $::TIK(userDirs) {
-        set dirPath [file normalize [file join $::TIK(configDir) $directory]]
+        set dirPath [file normalize [file join $configDir $directory]]
         if {![file exists $dirPath]} {
             if {[catch {file mkdir $dirPath} errMsg]} {
                 puts "Error: Failed to create directory $dirPath - $errMsg"
             }
         }
     }
-    set ::TIK(prefile)   [file join $::TIK(configDir) tikpre]
-    set ::TIK(rcfile)    [file join $::TIK(configDir) tikrc]
-    set ::TIK(strsfile)  [file join $::TIK(configDir) tikstrs]
-    set ::TIK(awayfile)  [file join $::TIK(configDir) awayrc]
-    set ::TIK(pkgfile)   [file join $::TIK(configDir) pkgrc]
-}
 
+    # Define user-specific configuration files
+    set ::TIK(prefile)   [file normalize [file join $configDir tikpre]]
+    set ::TIK(rcfile)    [file normalize [file join $configDir tikrc]]
+    set ::TIK(strsfile)  [file normalize [file join $configDir tikstrs]]
+    set ::TIK(awayfile)  [file normalize [file join $configDir awayrc]]
+    set ::TIK(pkgfile)   [file normalize [file join $configDir pkgrc]]
+}
 
 tik_load_strs 1
 tik_load_emoticons
@@ -1500,10 +1559,8 @@ if {[file exists ~/.tikrc]} {
 	proc writeconfig {} {
 	    if [file writable [file join $::TIK(BASEDIR) "configdir.tcl"]] {
 		set configfile [open [file join $::TIK(BASEDIR) "configdir.tcl"] w 0600]
-		if {$::configdirlocation == "default" && $::tcl_platform(platform) == "unix"} {
+		if {$::configdirlocation == "default"} {
 		    puts $configfile "set ::TIK(configDir) \[file join \[file nativename ~\] \".tik\"\]"
-		} elseif {$::configdirlocation == "default" && $::tcl_platform(platform) == "windows"} {
-		    puts $configfile "set ::TIK(configDir) \[file join \$::TIK(BASEDIR) \"config\"\]"
 		} else {
 		    puts $configfile "set ::TIK(configDir) $::TIK(configDir)"
 		}
