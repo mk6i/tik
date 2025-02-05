@@ -22,7 +22,7 @@ proc tik_noneproxy_config {} {
         -exportselection 0
     pack $w.tocportF.l $w.tocportF.e -side left
 
-    button $w.ok -text [tik_str B_OK] -command "destroy $w"
+    button $w.ok -text [tik_str B_OK] -command "writefiles; destroy $w"
     pack $w.label $w.tochostF $w.tocportF $w.ok -side top
 }
 
